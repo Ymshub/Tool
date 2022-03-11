@@ -1,7 +1,4 @@
-# Ymshowlove
-Config files for my GitHub profile.
-
-[![Ymshub's GitHub stats](https://github-readme-stats.vercel.app/api?username=Ymshub&show_icons=true&count_private=true&theme=vue)](https://github.com/Ymshub/Private)
+[![Ymshub's GitHub stats](https://github-readme-stats.vercel.app/api?username=Ymshub&show_icons=true&count_private=true&theme=vue)](https://github.com/Ymshub/Ymshow)
 
 # 使用手册
 
@@ -16,4 +13,3 @@ Config files for my GitHub profile.
 * 只为自己使用，他人如需使用安全性与内容自行调整。
 
 ---
-
