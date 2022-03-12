@@ -5,9 +5,9 @@ https://github.com/mieqq/mieqq/blob/master/sub_info.js
 示例↓↓↓ 
 ----------------------------------------
 [Script]
-Sub_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Ymshub/Ymshow/Master/JavaScript/Sub_info.js,script-update-interval=0,argument=url=[URL encode 后的机场节点链接]&reset_day=1&title=机场&icon=bonjour&color=#007aff
+Sub_Info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Ymshub/Ymshow/Master/JavaScript/Sub_Info.js,script-update-interval=0,argument=url=[URL encode 后的机场节点链接]&reset_day=1&title=机场&icon=bonjour&color=#007aff
 [Panel]
-Sub_info = script-name=Sub_info,update-interval=600
+Sub_Info = script-name=Sub_Info,update-interval=600
 ----------------------------------------
 先将带有流量信息的节点订阅链接encode，用encode后的链接替换"url="后面的[机场节点链接]
 可选参数 &reset_day，后面的数字替换成流量每月重置的日期，如1号就写1，8号就写8。如"&reset_day=8",不加该参数不显示流量重置信息。
