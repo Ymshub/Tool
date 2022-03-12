@@ -1,8 +1,7 @@
 /*
+Surge配置参考注释,感谢@congcong.
 https://raw.githubusercontent.com/congcong0806/surge-list/master/Script/ipcheck.js
-
-Surge配置参考注释,感谢@congcong.感谢@fishingworld
-https://raw.githubusercontent.com/congcong0806/surge-list/master/Script/ipcheck.js
+Surge配置参考注释,感谢@fishingworld.
 https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/net_info.js
 示例↓↓↓ 
 ----------------------------------------
