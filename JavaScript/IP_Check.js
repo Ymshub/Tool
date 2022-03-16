@@ -8,7 +8,7 @@ https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/net_i
 [Script]
 # 网络详情 标题显示为根节点名
 # 应当修改的字段 group 代理策略组名称
-NET_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Ymshub/Ymshow/Master/JavaScript/IP_Check.js,argument=icon=network.badge.shield.half.filled&color=#9a7ff7n=bonjour&color=#007aff&group=Proxy
+NET_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Ymshub/Surge/Master/JavaScript/IP_Check.js,argument=icon=network.badge.shield.half.filled&color=#9a7ff7n=bonjour&color=#007aff&group=Proxy
 [Panel]
 NET_info = script-name=NET_info,update-interval=1
 ----------------------------------------
