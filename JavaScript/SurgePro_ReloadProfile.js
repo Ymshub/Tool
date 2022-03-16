@@ -5,7 +5,7 @@ https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/surge
 ----------------------------------------
 [Script]
 附带重载配置,Surge Pro标题,可显示启动时间,点击刷新为重载配置
-SurgePro_ReloadProfile = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Ymshub/Ymshow/Master/JavaScripts/SurgePro_ReloadProfile.js,argument=icon=power.circle=#f6c970
+SurgePro_ReloadProfile = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Ymshub/Surge/Master/JavaScripts/SurgePro_ReloadProfile.js,argument=icon=power.circle=#f6c970
 [Panel]
 SurgePro_ReloadProfile = script-name=SurgePro_ReloadProfile,update-interval=1
 ----------------------------------------
