@@ -5,7 +5,7 @@ https://github.com/mieqq/mieqq/blob/master/sub_info.js
 示例↓↓↓ 
 ----------------------------------------
 [Script]
-Sub_Info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Ymshub/Ymshow/Master/JavaScript/Sub_Info.js,script-update-interval=0,argument=url=[URL encode 后的机场节点链接]&reset_day=1&title=机场&icon=bonjour&color=#007aff
+Sub_Info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Ymshub/Surge/Master/JavaScript/Sub_Info.js,script-update-interval=0,argument=url=[URL encode 后的机场节点链接]&reset_day=1&title=机场&icon=bonjour&color=#007aff
 [Panel]
 Sub_Info = script-name=Sub_Info,update-interval=600
 ----------------------------------------
