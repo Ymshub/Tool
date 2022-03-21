@@ -27,7 +27,7 @@ Sub_Info = script-name=Sub_Info,update-interval=600
   let used = info.download + info.upload;
   let total = info.total;
   let expire = args.expire || info.expire;
-  let content = [`Used: ${bytesToSize(used)}｜Reset: ${resetDayLeft} Days`];
+  let content = [`用量：${bytesToSize(used)} 丨 ${bytesToSize(total)}`];
 
 /*
   if (resetDayLeft) {
