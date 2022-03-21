@@ -20,21 +20,11 @@ Sub_Info = script-name=Sub_Info,update-interval=600
 
 let args = getArgs();
 
-(async () => {
-  let info = await getDataInfo(args.url);
-  if (!info) $done();
-  let resetDayLeft = getRmainingDays(parseInt(args["reset_day"]));
-
   let used = info.download + info.upload;
   let total = info.total;
   let expire = args.expire || info.expire;
   let content = [`用量：${bytesToSize(used)} | ${bytesToSize(total)}`];
 
-  let now = new Date();
-  let hour = now.getHours();
-  let minutes = now.getMinutes();
-  hour = hour > 9 ? hour : "0" + hour;
-  minutes = minutes > 9 ? minutes : "0" + minutes;
 
   $done({
     title: `${args.title} | ${hour}:${minutes}`,
