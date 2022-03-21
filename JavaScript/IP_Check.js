@@ -36,8 +36,7 @@ $httpClient.get('http://ip-api.com/json/?lang=zh-CN', function (error, response,
     $done({
       title:rootName,
       content:
-		`位置：${jsonData.country} - ${jsonData.city}\n`+
-      `运营：${jsonData.isp}`,
+		`位置：${jsonData.country} - ${jsonData.city}`,
       icon: params.icon,
 		  "icon-color":params.color
     });
