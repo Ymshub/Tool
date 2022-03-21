@@ -20,11 +20,14 @@ Sub_Info = script-name=Sub_Info,update-interval=600
 
 let args = getArgs();
 
+(async () => {
+
+
   let used = info.download + info.upload;
   let total = info.total;
   let expire = args.expire || info.expire;
   let content = [`用量：${bytesToSize(used)} | ${bytesToSize(total)}`];
-
+  
 
   $done({
     title: `${args.title} | ${hour}:${minutes}`,
@@ -45,7 +48,7 @@ function getArgs() {
 
 function getUserInfo(url) {
   let method = args.method || "head";
-  let request = { headers: { "User-Agent": "Quantumult%20X" }, url };
+  let request = { headers: { "User-Agent": "Surge" }, url };
   return new Promise((resolve, reject) =>
     $httpClient[method](request, (err, resp) => {
       if (err != null) {
