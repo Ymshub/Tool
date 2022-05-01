@@ -25,7 +25,7 @@ if ($trigger == "button") await httpAPI("/v1/profiles/reload");
 
   $done({
       title:"Surge ® 丨 2023-01-01",
-      content:`启动时长: ${startTime}`,
+      content:`开启时长: ${startTime}`,
 		icon: params.icon,
 		"icon-color":params.color
     });
