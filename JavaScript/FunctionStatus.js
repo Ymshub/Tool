@@ -9,9 +9,9 @@ let rewrite_status = (await httpAPI("/v1/features/rewrite","GET"));
 let scripting_status = (await httpAPI("/v1/features/scripting","GET"));
 if ($trigger == "button") await httpAPI("/v1/dns/flush");
 $done({
-    title:"Surge®丨已运行"+startTime,
+    title:"SurgePro®已运行"+startTime,
     content:"Mitm:"+icon_status(mitm_status.enabled)+"  Rewrite:"+icon_status(rewrite_status.enabled)+"  Script:"+icon_status(scripting_status.enabled),
-    icon: "gearshape",
+    icon: "alarm",
    // "icon-color":params.color
 });
 })();
