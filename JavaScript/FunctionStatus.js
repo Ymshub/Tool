@@ -24,10 +24,10 @@ if ($trigger == "button") await httpAPI("/v1/dns/flush");
 //$notification.post("配置重载","配置重载成功","")
 //};
 $done({
-    title:"𝗦𝗨𝗥𝗚𝗘  已运行"+startTime, //标题
+    title:"SurgePro®已运行"+startTime, //标题
     content:"MitM "+icon_status(mitm_status.enabled)+"  Rewrite "+icon_status(rewrite_status.enabled)+"  Scripting "+icon_status(scripting_status.enabled),
-    icon: icon_s?"power.circle":"exclamationmark.circle", //图标
-   "icon-color":icon_s?"#FF2121":"#FF7500" //颜色
+    icon: icon_s?"waveform":"waveform.badge.exclamationmark", //图标
+   "icon-color":icon_s?"#008AFF":"#FF7500" //颜色
 });
 })();
 function icon_status(status){
