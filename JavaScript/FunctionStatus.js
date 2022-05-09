@@ -1,4 +1,12 @@
-//代码借鉴 https://raw.githubusercontent.com/chaizia/Profiles/master/MySurge/surgepro_flushdns.js
+/*
+by:@moioooo @githubdulong
+[Panel]
+# > Panel
+策略面板 = script-name=功能开关, update-interval=30
+[Script]
+# > 策略面板
+功能开关 = type=generic,timeout=15,script-path=functionstatus.js
+*/
 !(async () => {
 let traffic = (await httpAPI("/v1/traffic","GET"));
 let dateNow = new Date();
@@ -7,19 +15,26 @@ let startTime = timeTransform(dateNow,dateTime);
 let mitm_status = (await httpAPI("/v1/features/mitm","GET"));
 let rewrite_status = (await httpAPI("/v1/features/rewrite","GET"));
 let scripting_status = (await httpAPI("/v1/features/scripting","GET"));
+let icon_s = mitm_status.enabled&&rewrite_status.enabled&&scripting_status.enabled;
+// 刷新DNS
 if ($trigger == "button") await httpAPI("/v1/dns/flush");
+// 重载配置+刷新DNS
+//if ($trigger == "button") {
+//await httpAPI("/v1/profiles/reload");
+//$notification.post("配置重载","配置重载成功","")
+//};
 $done({
-    title:"SurgePro®已运行"+startTime,
-    content:"Mitm:"+icon_status(mitm_status.enabled)+"  Rewrite:"+icon_status(rewrite_status.enabled)+"  Scripting:"+icon_status(scripting_status.enabled),
-    icon: "waveform",
-   // "icon-color":params.color
+    title:"𝗦𝗨𝗥𝗚𝗘  已运行"+startTime, //标题
+    content:"MitM "+icon_status(mitm_status.enabled)+"  Rewrite "+icon_status(rewrite_status.enabled)+"  Scripting "+icon_status(scripting_status.enabled),
+    icon: icon_s?"power.circle":"exclamationmark.circle", //图标
+   "icon-color":icon_s?"#FF2121":"#FF7500" //颜色
 });
 })();
 function icon_status(status){
   if (status){
-    return "\u2611";
+    return "\u2611"; //小图标“勾”
   } else {
-      return "\u2757"
+      return "\u2612" //小图标“叉”
     }
 }
 function timeTransform(dateNow,dateTime) {
