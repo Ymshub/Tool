@@ -62,6 +62,19 @@ DOMAIN,tracklog.58.com
 # > Baidu
 DOMAIN,hm.baidu.com
 DOMAIN,hmma.baidu.com
+
+# > ByteDance
+DOMAIN,log.byteoversea.com
+DOMAIN,log.tiktokv.com
+DOMAIN,log-hl-ipv6.snssdk.com
+DOMAIN,log-lq.snssdk.com
+DOMAIN,log-va.tiktokv.com
+DOMAIN,xlog.snssdk.com
+DOMAIN,srp4.snssdk.com
+DOMAIN,srp2.snssdk.com
+DOMAIN,srp1.snssdk.com
+DOMAIN,srp3.snssdk.com
+
 # > Daum
 DOMAIN,track.tiara.daum.net
 DOMAIN,track.tiara.kakao.com
@@ -79,7 +92,6 @@ DOMAIN-SUFFIX,giocdn.com
 DOMAIN-SUFFIX,growingio.com
 # > MI
 DOMAIN-SUFFIX,tracking.miui.com
-# DOMAIN,api.miwifi.com // 影响 Mi Wi-Fi(id859962702)，但建议注意 https://www.v2ex.com/t/746094
 DOMAIN,data.mistat.xiaomi.com
 DOMAIN,tracking.intl.miui.com
 # > TalkingData
