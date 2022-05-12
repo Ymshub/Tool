@@ -25,6 +25,7 @@
 * [congcong0806](https://github.com/congcong0806)
 * [MuTu](https://github.com/githubdulong)
 * [iEwha](https://github.com/iEwha)
+* [blackmatrix7](https://github.com/blackmatrix7/ios_rule_script)
 
 排名不分先后，名单陆续添加中。
 
