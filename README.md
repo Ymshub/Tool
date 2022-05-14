@@ -1,7 +1,5 @@
 [![Ymshub's GitHub stats](https://github-readme-stats.vercel.app/api?username=Ymshub&show_icons=true&count_private=true&theme=vue)](https://github.com/Ymshub/Ymshow)
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Ymshub&layout=compact&theme=vue)](https://github.com/Ymshub/Ymshow)
-
 # 使用手册
 
 ## 简介：
@@ -26,9 +24,12 @@
 * [MuTu](https://github.com/githubdulong)
 * [iEwha](https://github.com/iEwha)
 * [blackmatrix7](https://github.com/blackmatrix7/ios_rule_script)
+* [HotKids](https://github.com/HotKids/Rules)
 
 排名不分先后，名单陆续添加中。
 
 感谢各位大佬无私分享以及辛勤维护！
 
 ---
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Ymshub&layout=compact&theme=vue)](https://github.com/Ymshub/Ymshow)
