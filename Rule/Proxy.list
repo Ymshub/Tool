@@ -30,6 +30,7 @@ DOMAIN,brightcove.imgix.net
 DOMAIN,cbsi.live.ott.irdeto.com
 DOMAIN,cbsplaylistserver.aws.syncbak.com
 DOMAIN,cbsservice.aws.syncbak.com
+DOMAIN,cdn.jsdelivr.net
 DOMAIN,cdn77.scoreuniverse.com
 DOMAIN,cdngarenanow-a.akamaihd.net
 DOMAIN,chinapower.csis.org
@@ -18920,7 +18921,6 @@ DOMAIN-SUFFIX,nyt.net
 DOMAIN-SUFFIX,nytalk.net
 DOMAIN-SUFFIX,nytchina.com
 DOMAIN-SUFFIX,nytcn.me
-DOMAIN-SUFFIX,nytcnapps.oss-cn-hongkong.aliyuncs.com
 DOMAIN-SUFFIX,nytco.com
 DOMAIN-SUFFIX,nytfilmclub.com
 DOMAIN-SUFFIX,nyti.ms
@@ -19301,6 +19301,21 @@ DOMAIN-SUFFIX,osm.org
 DOMAIN-SUFFIX,osmfoundation.org
 DOMAIN-SUFFIX,ospray.net
 DOMAIN-SUFFIX,ospray.org
+DOMAIN-SUFFIX,oss-ap-northeast-1.aliyuncs.com
+DOMAIN-SUFFIX,oss-ap-northeast-2.aliyuncs.com
+DOMAIN-SUFFIX,oss-ap-south-1.aliyuncs.com
+DOMAIN-SUFFIX,oss-ap-southeast-1.aliyuncs.com
+DOMAIN-SUFFIX,oss-ap-southeast-2.aliyuncs.com
+DOMAIN-SUFFIX,oss-ap-southeast-3.aliyuncs.com
+DOMAIN-SUFFIX,oss-ap-southeast-5.aliyuncs.com
+DOMAIN-SUFFIX,oss-ap-southeast-6.aliyuncs.com
+DOMAIN-SUFFIX,oss-ap-southeast-7.aliyuncs.com
+DOMAIN-SUFFIX,oss-cn-hongkong.aliyuncs.com
+DOMAIN-SUFFIX,oss-eu-central-1.aliyuncs.com
+DOMAIN-SUFFIX,oss-eu-west-1.aliyuncs.com
+DOMAIN-SUFFIX,oss-me-east-1.aliyuncs.com
+DOMAIN-SUFFIX,oss-us-east-1.aliyuncs.com
+DOMAIN-SUFFIX,oss-us-west-1.aliyuncs.com
 DOMAIN-SUFFIX,otaku13.howbbs.com
 DOMAIN-SUFFIX,otakuss.com
 DOMAIN-SUFFIX,otbm.com
