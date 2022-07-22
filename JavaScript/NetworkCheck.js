@@ -1,7 +1,6 @@
 /*
  * Surge 网络详情面板
- * @Nebulosa-Cat
- * 详情见 README
+ * Copy From@Nebulosa-Cat
  */
 
 /**
@@ -192,7 +191,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
     $done({
       title: getSSID() ?? getCellularInfo(),
       content:
-        `[运营商] ${info.isp}`,
+        `运营:${info.isp}`,
       icon: getSSID() ? 'wifi' : 'simcard',
       'icon-color': getSSID() ? '#005CAF' : '#F9BF45',
     });
