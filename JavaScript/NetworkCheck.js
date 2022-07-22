@@ -191,7 +191,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
     $done({
       title: getSSID() ?? getCellularInfo(),
       content:
-        `运营:${info.isp}`,
+        `运营：${info.isp}`,
       icon: getSSID() ? 'wifi' : 'simcard',
       'icon-color': getSSID() ? '#005CAF' : '#F9BF45',
     });
