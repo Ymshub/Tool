@@ -21,3 +21,6 @@ PROCESS-NAME,WebTorrent,DIRECT
 PROCESS-NAME,WebTorrent Helper,DIRECT
 # > Router
 DOMAIN,router.asus.com,DIRECT
+
+# > 视频网站广告拦截
+RULE-SET,https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo_surge.list,REJECT
