@@ -33,3 +33,7 @@
 ---
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Ymshub&layout=compact&theme=vue)](https://github.com/Ymshub/Ymshow)
+
+### 项目访问量统计
+
+![](http://profile-counter.glitch.me/Ymshub/count.svg)
