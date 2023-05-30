@@ -6,10 +6,15 @@
 # Client
 # > Proxy
 PROCESS-NAME,v2ray,DIRECT
+PROCESS-NAME,xray,DIRECT
+PROCESS-NAME,naive,DIRECT
+PROCESS-NAME,Trojan,DIRECT
+PROCESS-NAME,Trojan-go,DIRECT
 PROCESS-NAME,ss-local,DIRECT
-# > UUBooster
+PROCESS-NAME,privoxy,DIRECT
+PROCESS-NAME,leaf,DIRECT
 PROCESS-NAME,UUBooster,DIRECT
-# > Download
+# > Download for Surge Mac
 PROCESS-NAME,aria2c,DIRECT
 PROCESS-NAME,fdm,DIRECT
 PROCESS-NAME,Folx,DIRECT
@@ -19,8 +24,24 @@ PROCESS-NAME,Transmission,DIRECT
 PROCESS-NAME,uTorrent,DIRECT
 PROCESS-NAME,WebTorrent,DIRECT
 PROCESS-NAME,WebTorrent Helper,DIRECT
+# > BT
+DOMAIN-SUFFIX,smtp,DIRECT
+DOMAIN-KEYWORD,aria2,DIRECT
+DOMAIN-KEYWORD,announce,DIRECT
+DOMAIN-KEYWORD,torrent,DIRECT
+DOMAIN-KEYWORD,tracker,DIRECT
+URL-REGEX,(Subject|HELO|SMTP),DIRECT
+URL-REGEX,(api|ps|sv|offnavi|newvector|ulog.imap|newloc)(.map|).(baidu|n.shifen).com,DIRECT
+URL-REGEX,(.+.|^)(360|so|qihoo|360safe|qhimg|360totalsecurity|yunpan).(cn|com),DIRECT
+URL-REGEX,(.+.)?(torrent|announce.php?passkey=|tracker|BitTorrent|bt_key|ed2k|find_node|get_peers|info_hash|magnet:|peer_id=|xunlei)(..+)?,DIRECT
+# > 迅雷
+URL-REGEX,(.?)(xunlei|sandai|Thunder|XLLiveUD)(.),DIRECT
+DOMAIN-SUFFIX,xunlei.com,DIRECT
+PROCESS-NAME,DownloadService,DIRECT
+# > Tencent 微云
+PROCESS-NAME,Weiyun,DIRECT
+# > BaiduYun 百度网盘
+PROCESS-NAME,baidunetdisk,DIRECT
+URL-REGEX,(api|ps|sv|offnavi|newvector|ulog\.imap|newloc)(\.map|)\.(baidu|n\.shifen)\.com,DIRECT
 # > Router
 DOMAIN,router.asus.com,DIRECT
-
-# > 视频网站广告拦截
-RULE-SET,https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo_surge.list,REJECT
