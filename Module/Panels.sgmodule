@@ -1,0 +1,77 @@
+#!name=Panels
+#!desc=Panel Module
+
+[Panel]
+
+# > FunctionStatus
+FunctionStatus = script-name=FunctionStatus, update-interval=60
+
+# > 节假日提醒
+节假日提醒 = script-name=节假日提醒,update-interval=3600
+
+# > 网络速率
+# NetSpeed = script-name=NetSpeed,update-interval=-1
+
+# > 网络运营商
+Network = title="",content="",style=info,script-name=Network,update-interval=1
+
+# > 实时油价
+# YJ = script-name=YJ,update-interval=43200
+
+# > WARP
+ WARP Panel = title=" 𝙒𝘼𝙍𝙋 𝙄𝙣𝙛𝙤", icon="lock.icloud.fill", "icon-color": "#f48220", script-name= WARP Panel
+
+# > 今日黄历
+# 今日黄历 = script-name= 今日黄历,title=今日黄历,content=请刷新,style=info,update-interval=86400
+
+# > NetISP 面板
+NetISP = script-name=NetISP,update-interval=43200
+
+[Script]
+
+# > FunctionStatus
+# 显示卡片开关，用于隐藏卡片时查看开启状态
+FunctionStatus = type=generic, script-path=https://yangmingsong.com/Surge/JavaScript/FunctionStatus.js
+
+# > 节假日提醒
+节假日提醒 = type=generic,timeout=10,script-path=https://yangmingsong.com/Surge/JavaScript/TimeCard.js
+
+# > 网络速率
+# NetSpeed = type=generic,script-path=https://raw.githubusercontent.com/getsomecat/GetSomeCats/Surge/modules/Panel/Net_Speed/Net_Speed.js,argument=title=NetSpeed&iconfast=bolt&iconmid=hare&iconslow=tortoise&colorlow=#06D6A0&colormid=#FFD166&colorhigh=#EF476F&mb=4
+
+# > 网络运营商
+Network = type=generic,timeout=30,script-path=https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Module/Panel/Network-Info/Moore/Network-Info.js
+
+# > 实时油价
+# YJ = type=generic,timeout=5,script-path=https://raw.githubusercontent.com/getsomecat/GetSomeCats/Surge/script/youjia.js,argument=jiangsu/lianyungang
+
+# > WARP
+# WARP Panel
+ WARP Panel = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/Cloudflare.1.1.1.1.panel.js
+# WARP Personal
+ WARP Personal Request = type=http-request,pattern=^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$, requires-body=1, script-path=https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/Cloudflare.1.1.1.1.request.js
+ WARP Personal Response = type=http-response,pattern=^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$, requires-body=1, script-path=https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/Cloudflare.1.1.1.1.response.js
+# Cloudflare for Teams
+ WARP Teams Request = type=http-request,pattern=^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/t\.[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$, requires-body=1, script-path=https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/Cloudflare.1.1.1.1.request.js
+ WARP Teams Response = type=http-response,pattern=^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/t\.[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$, requires-body=1, script-path=https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/Cloudflare.1.1.1.1.response.js
+
+# > NetISP 面板
+NetISP = type=generic,timeout=8,script-path=https://github.com/Keywos/rule/raw/main/JS/Netisp.js
+
+# > 今日黄历
+# 今日黄历 = type = generic,timeout=10, script-path=https://yangmingsong.com/Surge/JavaScript/wnCalendar.js
+今日黄历播报 = type=cron,timeout=10, cronexp=0 9 * * *,wake-system=1,script-path=https://yangmingsong.com/Surge/JavaScript/wnCalendar.js
+
+# > 极简汇率
+汇率监控播报 = type=cron,cronexp=0 9 * * ?,timeout=10,script-path=https://raw.githubusercontent.com/Keywos/rule/main/JS/cnyusd.js
+
+# > 每天60s读懂世界
+每天60s读懂世界 = type=cron,timeout=10, cronexp=0 9 * * ?,wake-system=1,script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/60s.js
+
+[MITM]
+
+hostname = %APPEND% api.cloudflareclient.com, zero-trust-client.cloudflareclient.com
+
+[Host]
+
+ip-api.com = 208.95.112.1
