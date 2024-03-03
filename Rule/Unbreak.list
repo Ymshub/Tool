@@ -3,6 +3,8 @@
 # > 1Password
 DOMAIN-SUFFIX,1password.com
 DOMAIN-KEYWORD,1password
+DOMAIN-SUFFIX,agilebits.com
+DOMAIN-SUFFIX,pwnedpasswords.com
 
 # > Alibaba
 DOMAIN,log.mmstat.com
