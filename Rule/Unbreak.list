@@ -2,6 +2,7 @@
 
 # > 1Password
 DOMAIN-SUFFIX,1password.com
+DOMAIN-KEYWORD,1password
 
 # > Alibaba
 DOMAIN,log.mmstat.com
