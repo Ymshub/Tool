@@ -25,8 +25,9 @@ IP-ASN,14061,no-resolve
 IP-ASN,20473,no-resolve
 
 # > Claude
-DOMAIN-SUFFIX,claude.ai
+DOMAIN,cdn.usefathom.com
 DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
 
 # > Google Gemini
 DOMAIN,ai.google.dev
@@ -50,9 +51,20 @@ DOMAIN-SUFFIX,grazie.ai
 DOMAIN,imagine.meta.com
 
 # > Microsoft Copilot
+DOMAIN,api.msn.com
+DOMAIN,assets.msn.com
 DOMAIN,copilot.microsoft.com
-DOMAIN,sydney.bing.com
+DOMAIN,gateway.bingviz.microsoft.net
+DOMAIN,gateway.bingviz.microsoftapp.net
+DOMAIN,location.microsoft.com
+DOMAIN,odc.officeapps.live.com
+DOMAIN,r.bing.com
+DOMAIN,self.events.data.microsoft.com
+DOMAIN,services.bingapis.com
 DOMAIN,www.bing.com
+DOMAIN-SUFFIX,api.microsoftapp.net
+DOMAIN-SUFFIX,bing-shopping.microsoft-falcon.io
+DOMAIN-SUFFIX,edgeservices.bing.com
 
 # > OpenAI ChatGPT
 DOMAIN,api.statsig.com
