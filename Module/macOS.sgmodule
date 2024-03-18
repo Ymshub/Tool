@@ -14,6 +14,7 @@ PROCESS-NAME,ss-local,DIRECT
 PROCESS-NAME,privoxy,DIRECT
 PROCESS-NAME,leaf,DIRECT
 PROCESS-NAME,UUBooster,DIRECT
+
 # > Download for Surge Mac
 PROCESS-NAME,aria2c,DIRECT
 PROCESS-NAME,fdm,DIRECT
@@ -24,6 +25,7 @@ PROCESS-NAME,Transmission,DIRECT
 PROCESS-NAME,uTorrent,DIRECT
 PROCESS-NAME,WebTorrent,DIRECT
 PROCESS-NAME,WebTorrent Helper,DIRECT
+
 # > BT
 DOMAIN-SUFFIX,smtp,DIRECT
 DOMAIN-KEYWORD,aria2,DIRECT
@@ -34,14 +36,20 @@ URL-REGEX,(Subject|HELO|SMTP),DIRECT
 URL-REGEX,(api|ps|sv|offnavi|newvector|ulog.imap|newloc)(.map|).(baidu|n.shifen).com,DIRECT
 URL-REGEX,(.+.|^)(360|so|qihoo|360safe|qhimg|360totalsecurity|yunpan).(cn|com),DIRECT
 URL-REGEX,(.+.)?(torrent|announce.php?passkey=|tracker|BitTorrent|bt_key|ed2k|find_node|get_peers|info_hash|magnet:|peer_id=|xunlei)(..+)?,DIRECT
+
 # > 迅雷
 URL-REGEX,(.?)(xunlei|sandai|Thunder|XLLiveUD)(.),DIRECT
 DOMAIN-SUFFIX,xunlei.com,DIRECT
 PROCESS-NAME,DownloadService,DIRECT
+
 # > Tencent 微云
 PROCESS-NAME,Weiyun,DIRECT
+
 # > BaiduYun 百度网盘
 PROCESS-NAME,baidunetdisk,DIRECT
 URL-REGEX,(api|ps|sv|offnavi|newvector|ulog\.imap|newloc)(\.map|)\.(baidu|n\.shifen)\.com,DIRECT
 # > Router
 DOMAIN,router.asus.com,DIRECT
+
+# > Look Up (Only for Wikipedia@macOS, Surge Enhance Mode enabled required)
+RULE-SET,https://raw.githubusercontent.com/VirgilClyne/iRingo/main/RuleSet/Look_Up.Wikipedia.list,Proxy
