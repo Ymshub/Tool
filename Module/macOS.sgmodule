@@ -51,5 +51,8 @@ URL-REGEX,(api|ps|sv|offnavi|newvector|ulog\.imap|newloc)(\.map|)\.(baidu|n\.shi
 # > Router
 DOMAIN,router.asus.com,DIRECT
 
+# > 阻止电报频繁请求
+AND,((PROCESS-NAME,Telegram), (OR,((IP-CIDR,0.0.0.0/8), (IP-CIDR,224.0.0.0/4)))),REJECT
+
 # > Look Up (Only for Wikipedia@macOS, Surge Enhance Mode enabled required)
 RULE-SET,https://raw.githubusercontent.com/VirgilClyne/iRingo/main/RuleSet/Look_Up.Wikipedia.list,Proxy
