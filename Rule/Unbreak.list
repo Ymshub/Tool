@@ -10,6 +10,9 @@ DOMAIN,api.pwnedpasswords.com
 DOMAIN,log.mmstat.com
 DOMAIN,sycm.mmstat.com
 
+# > Dedao
+DOMAIN-SUFFIX,umiwi.com
+
 # > Direct+
 DOMAIN,app.adjust.com
 DOMAIN,app.appsflyer.com
