@@ -1,17 +1,14 @@
 # NAME: Binance
-TOTAL: 12
-DOMAIN-SUFFIX,appsflayer.com
-DOMAIN-SUFFIX,binance.cloud
+# TOTAL: 9
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,binance.me
-DOMAIN-SUFFIX,binancecnt.com
-DOMAIN-SUFFIX,binancefuture.com
-DOMAIN-SUFFIX,bnappzh.co
-DOMAIN-SUFFIX,bnbstatic.com
-DOMAIN-SUFFIX,bnbzh.ac
+DOMAIN-SUFFIX,binance.cloud
 DOMAIN-SUFFIX,bntrace.com
-DOMAIN-SUFFIX,saasexch.cc
+DOMAIN-SUFFIX,bnappzh.co
+DOMAIN-SUFFIX,bnbzh.ac
+DOMAIN-SUFFIX,bnbstatic.com
 DOMAIN-SUFFIX,saasexch.com
+DOMAIN-SUFFIX,appsflayer.com
 
 # NAME: OKX
 # TOTAL: 3
