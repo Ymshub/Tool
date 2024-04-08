@@ -1,0 +1,4 @@
+# 规则名称:GEOIPCN
+
+payload:
+  - GEOIP,CN
