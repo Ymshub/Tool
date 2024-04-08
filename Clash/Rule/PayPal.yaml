@@ -1,0 +1,18 @@
+# 规则名称:PayPal
+
+payload:
+  - DOMAIN-SUFFIX,paypal.com
+  - DOMAIN-SUFFIX,paypal.me
+  - DOMAIN-SUFFIX,paypal-mktg.com
+  - DOMAIN-SUFFIX,paypalobjects.com
+  - DOMAIN-SUFFIX,payppal.com
+  - DOMAIN-SUFFIX,payypal.com
+  - DOMAIN-SUFFIX,pdncommunity.com
+  - DOMAIN-SUFFIX,pp-soc.com
+  - DOMAIN-SUFFIX,ppaypal.com
+  - DOMAIN-SUFFIX,pppds.com
+  - DOMAIN-SUFFIX,pypl.com
+  - DOMAIN-SUFFIX,pypl.info
+  - DOMAIN-SUFFIX,pypl.net
+  - DOMAIN-SUFFIX,pypl.tv
+  - DOMAIN-KEYWORD,paypal
