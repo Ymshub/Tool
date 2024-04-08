@@ -1,0 +1,18 @@
+# 规则名称:Coins
+
+payload:
+# > Binance
+  - DOMAIN-SUFFIX,binance.com
+  - DOMAIN-SUFFIX,binance.me
+  - DOMAIN-SUFFIX,binance.cloud
+  - DOMAIN-SUFFIX,bntrace.com
+  - DOMAIN-SUFFIX,bnappzh.co
+  - DOMAIN-SUFFIX,bnbzh.ac
+  - DOMAIN-SUFFIX,bnbstatic.com
+  - DOMAIN-SUFFIX,saasexch.com
+  - DOMAIN-SUFFIX,appsflayer.com
+
+# > OKX
+  - DOMAIN-SUFFIX,okex.com
+  - DOMAIN-SUFFIX,oklink.com
+  - DOMAIN-SUFFIX,okx.com
