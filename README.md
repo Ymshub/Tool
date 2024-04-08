@@ -12,7 +12,7 @@
 
 * 只为自己使用，他人如需使用安全性与内容自行调整。
 
-* 只适用于最新版本的 Surge/Surfboard，旧版本可能产生未知问题，请谨慎使用。
+* 只适用于最新版本的 Surge/Surfboard/Clash，旧版本可能产生未知问题，请谨慎使用。
 
 ---
 
@@ -31,6 +31,9 @@
 
 ### Surfboard:
 * [Repcz](https://github.com/Repcz)
+
+### Clash:
+* [Matrix](https://github.com/Centralmatrix3/Matrix-io/tree/master)
 
 排名不分先后，名单陆续添加中。
 
