@@ -28,6 +28,8 @@ IP-ASN,20473,no-resolve
 DOMAIN,cdn.usefathom.com
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
+IP-CIDR, 160.79.104.0/23
+IP-CIDR6, 2607:6bc0::/48
 
 # > Google Gemini
 DOMAIN,ai.google.dev
@@ -43,6 +45,7 @@ DOMAIN-SUFFIX,apis.google.com
 DOMAIN-KEYWORD,colab
 DOMAIN-KEYWORD,developerprofiles
 DOMAIN-KEYWORD,generativelanguage
+DOMAIN,aistudio.google.com
 
 # > JetBrains AI
 DOMAIN-SUFFIX,grazie.ai
@@ -51,21 +54,25 @@ DOMAIN-SUFFIX,grazie.ai
 DOMAIN,imagine.meta.com
 
 # > Microsoft Copilot
-DOMAIN,api.msn.com
-DOMAIN,assets.msn.com
+DOMAIN,api.githubcopilot.com
+DOMAIN,bat.bing.com
+DOMAIN,browser.events.data.microsoft.com
+DOMAIN,config.edge.skype.com
+DOMAIN,content.lifecycle.office.net
+DOMAIN,copilot-proxy.githubusercontent.com
 DOMAIN,copilot.microsoft.com
-DOMAIN,gateway.bingviz.microsoft.net
-DOMAIN,gateway.bingviz.microsoftapp.net
-DOMAIN,location.microsoft.com
-DOMAIN,odc.officeapps.live.com
-DOMAIN,r.bing.com
-DOMAIN,self.events.data.microsoft.com
+DOMAIN,edge.microsoft.com
+DOMAIN,edgeservices.bing.com
+DOMAIN,functional.events.data.microsoft.com
+DOMAIN,login.live.com
 DOMAIN,services.bingapis.com
+DOMAIN,storage.live.com
+DOMAIN,strict.bing.com
 DOMAIN,sydney.bing.com
 DOMAIN,www.bing.com
-DOMAIN-SUFFIX,api.microsoftapp.net
-DOMAIN-SUFFIX,bing-shopping.microsoft-falcon.io
-DOMAIN-SUFFIX,edgeservices.bing.com
+DOMAIN,www.bingapis.com
+DOMAIN-SUFFIX, bing.com
+
 
 # > OpenAI ChatGPT
 DOMAIN,api.statsig.com
