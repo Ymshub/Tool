@@ -51,6 +51,22 @@
       "url": "https:/yangmingsong.com/Tool/Surge/Icon/Liuliang.png"
     },
     {
+      "name": "LoadBalance",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/LoadBalance.png"
+    },
+    {
+      "name": "Proxy",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Proxy.png"
+    },
+    {
+      "name": "Quanqiu",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Quanqiu.png"
+    },
+    {
+      "name": "Relay",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Relay.png"
+    },
+    {
       "name": "Surge_0",
       "url": "https:/yangmingsong.com/Tool/Surge/Icon/Surge_0.png"
     },
@@ -69,6 +85,10 @@
     {
       "name": "Surge_4",
       "url": "https:/yangmingsong.com/Tool/Surge/Icon/Surge_4.png"
+    },
+    {
+      "name": "Titan",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Titan.png"
     },
   ]
 }
