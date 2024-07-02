@@ -1,0 +1,74 @@
+{
+  "name": "Surge Pro",
+  "description": "For xSix",
+  "icons": [  
+    {
+      "name": "ChatGPT0",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT0.png"
+    },
+    {
+      "name": "ChatGPT1",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT1.png"
+    },
+    {
+      "name": "ChatGPT2",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT2.png"
+    },
+    {
+      "name": "ChatGPT3",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT3.png"
+    },
+    {
+      "name": "ChatGPT4",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT4.png"
+    },
+    {
+      "name": "ChatGPT5",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT5.png"
+    },
+    {
+      "name": "ChatGPT6",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT6.png"
+    },
+    {
+      "name": "ChatGPT7",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT7.png"
+    },
+    {
+      "name": "Emby0",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby0.png"
+    },
+    {
+      "name": "Emby1",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby1.png"
+    },
+    {
+      "name": "Emby2",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby2.png"
+    },
+    {
+      "name": "Liuliang",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Liuliang.png"
+    },
+    {
+      "name": "Surge_0",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Surge_0.png"
+    },
+    {
+      "name": "Surge_1",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Surge_1.png"
+    },
+    {
+      "name": "Surge_2",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Surge_2.png"
+    },
+    {
+      "name": "Surge_3",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Surge_3.png"
+    },
+    {
+      "name": "Surge_4",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Surge_4.png"
+    },
+  ]
+}
