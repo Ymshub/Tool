@@ -3,6 +3,10 @@
   "description": "For xSix",
   "icons": [  
     {
+      "name": "Bitcloud",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Bitcloud.png"
+    },
+    {
       "name": "ChatGPT0",
       "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT0.png"
     },
@@ -45,6 +49,10 @@
     {
       "name": "Emby2",
       "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby2.png"
+    },
+    {
+      "name": "Emby3",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby3.png"
     },
     {
       "name": "Liuliang",
