@@ -5,6 +5,7 @@ DOMAIN-SUFFIX,1password.com
 DOMAIN-KEYWORD,1password
 DOMAIN-SUFFIX,agilebits.com
 DOMAIN,api.pwnedpasswords.com
+DOMAIN-SUFFIX,1infra.net
 
 # > Alibaba
 DOMAIN,log.mmstat.com
