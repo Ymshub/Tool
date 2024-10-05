@@ -11,36 +11,16 @@
       "url": "https:/yangmingsong.com/Tool/Surge/Icon/DMIT.png"
     },
     {
-      "name": "Emby0",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby0.png"
-    },
-    {
-      "name": "Emby1",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby1.png"
-    },
-    {
-      "name": "Emby2",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby2.png"
-    },
-    {
-      "name": "Emby3",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby3.png"
+      "name": "Emby",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby.png"
     },
     {
       "name": "OKX",
       "url": "https:/yangmingsong.com/Tool/Surge/Icon/OKX.png"
     },
     {
-      "name": "Proxy",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Proxy.png"
-    },
-    {
       "name": "Quanqiu",
       "url": "https:/yangmingsong.com/Tool/Surge/Icon/Quanqiu.png"
-    },
-    {
-      "name": "Relay",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Relay.png"
     },
     {
       "name": "Surge_0",
@@ -61,10 +41,6 @@
     {
       "name": "Surge_4",
       "url": "https:/yangmingsong.com/Tool/Surge/Icon/Surge_4.png"
-    },
-    {
-      "name": "Titan",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Titan.png"
     },
   ]
 }
