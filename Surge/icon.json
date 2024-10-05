@@ -3,40 +3,12 @@
   "description": "For xSix",
   "icons": [  
     {
-      "name": "Bitcloud",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Bitcloud.png"
+      "name": "Azure",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Azure.png"
     },
     {
-      "name": "ChatGPT0",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT0.png"
-    },
-    {
-      "name": "ChatGPT1",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT1.png"
-    },
-    {
-      "name": "ChatGPT2",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT2.png"
-    },
-    {
-      "name": "ChatGPT3",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT3.png"
-    },
-    {
-      "name": "ChatGPT4",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT4.png"
-    },
-    {
-      "name": "ChatGPT5",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT5.png"
-    },
-    {
-      "name": "ChatGPT6",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT6.png"
-    },
-    {
-      "name": "ChatGPT7",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/ChatGPT7.png"
+      "name": "DMIT",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/DMIT.png"
     },
     {
       "name": "Emby0",
@@ -55,12 +27,8 @@
       "url": "https:/yangmingsong.com/Tool/Surge/Icon/Emby3.png"
     },
     {
-      "name": "Liuliang",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/Liuliang.png"
-    },
-    {
-      "name": "LoadBalance",
-      "url": "https:/yangmingsong.com/Tool/Surge/Icon/LoadBalance.png"
+      "name": "OKX",
+      "url": "https:/yangmingsong.com/Tool/Surge/Icon/OKX.png"
     },
     {
       "name": "Proxy",
