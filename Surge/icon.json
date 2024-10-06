@@ -7,6 +7,10 @@
       "url": "https://yangmingsong.com/Tool/Surge/Icon/Azure.png"
     },
     {
+      "name": "Coins",
+      "url": "https://yangmingsong.com/Tool/Surge/Icon/Coins.png"
+    },
+    {
       "name": "DMIT",
       "url": "https://yangmingsong.com/Tool/Surge/Icon/DMIT.png"
     },
@@ -15,8 +19,8 @@
       "url": "https://yangmingsong.com/Tool/Surge/Icon/Emby.png"
     },
     {
-      "name": "OKX",
-      "url": "https://yangmingsong.com/Tool/Surge/Icon/OKX.png"
+      "name": "Telegram",
+      "url": "https://yangmingsong.com/Tool/Surge/Icon/Telegram.png"
     },
   ]
 }
