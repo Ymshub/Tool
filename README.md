@@ -21,6 +21,10 @@
 ### Clash:
 * [Matrix](https://github.com/Centralmatrix3/Matrix-io/tree/master)
 
+### Loon:
+* [可莉](https://github.com/luestr)
+* [Repcz](https://github.com/Repcz)
+
 ### Surfboard:
 * [Repcz](https://github.com/Repcz)
 
