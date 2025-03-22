@@ -1,0 +1,72 @@
+# > 阡陌居
+DOMAIN-SUFFIX,1000qm.vip
+
+# > 1Password
+DOMAIN-SUFFIX,1password.com
+DOMAIN-KEYWORD,1password
+DOMAIN-SUFFIX,agilebits.com
+DOMAIN,api.pwnedpasswords.com
+DOMAIN-SUFFIX,1infra.net
+
+# > Alibaba
+DOMAIN,log.mmstat.com
+DOMAIN,sycm.mmstat.com
+
+# > Dedao
+DOMAIN-SUFFIX,umiwi.com
+
+# > Direct+
+DOMAIN,app.adjust.com
+DOMAIN,app.appsflyer.com
+DOMAIN,bdtj.tagtic.cn
+
+# > Goodnotes
+DOMAIN,api.goodnotescloud.com
+DOMAIN-SUFFIX,goodnotesapp.com.cn
+
+# > IPv4/IPv6 Test
+DOMAIN-SUFFIX,test-ipv6.com
+
+# > pianyuan.org
+DOMAIN-SUFFIX,pianyuan.org
+
+# > Strava
+DOMAIN,analytics.strava.com
+
+# > subhd.tv
+DOMAIN-SUFFIX,subhd.tv
+
+# > Tencent
+DOMAIN,fairplay.l.qq.com
+DOMAIN,livew.l.qq.com
+DOMAIN,vd.l.qq.com
+DOMAIN,vi.l.qq.com
+
+# > Umeng
+DOMAIN,msg.umeng.com
+DOMAIN,msg.umengcloud.com
+
+# > WeChat
+DOMAIN-SUFFIX,qlogo.cn
+DOMAIN-SUFFIX,qpic.cn
+DOMAIN-SUFFIX,weixin.qq.com
+DOMAIN-SUFFIX,wxapp.tc.qq.com
+DOMAIN-SUFFIX,servicewechat.com
+DOMAIN-SUFFIX,tenpay.com
+DOMAIN-SUFFIX,wechat.com
+DOMAIN-SUFFIX,wechatlegal.net
+DOMAIN-SUFFIX,wechatpay.com
+DOMAIN-SUFFIX,weixin.com
+DOMAIN-SUFFIX,weixinbridge.com
+DOMAIN-SUFFIX,weixinsxy.com
+IP-CIDR,101.32.104.4/32,no-resolve
+IP-CIDR,101.32.104.41/32,no-resolve
+IP-CIDR,101.32.104.56/32,no-resolve
+IP-CIDR,101.32.118.25/32,no-resolve
+IP-CIDR,101.32.133.16/32,no-resolve
+IP-CIDR,101.32.133.53/32,no-resolve
+IP-CIDR,101.32.133.209/32,no-resolve
+IP-CIDR,129.226.3.47/32,no-resolve
+IP-CIDR,129.226.107.244/32,no-resolve
+IP-CIDR,129.226.107.59/32,no-resolve
+IP-CIDR,43.156.222.0/24,no-resolve
