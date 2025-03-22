@@ -41,6 +41,11 @@ DOMAIN, aistudio.google.com
 DOMAIN, alkalimakersuite-pa.clients6.google.com
 DOMAIN, makersuite.google.com
 
+# Grok AI
+DOMAIN, api.x.ai
+DOMAIN-SUFFIX, x.ai
+DOMAIN-SUFFIX, grok.com
+
 # JetBrains AI
 DOMAIN-SUFFIX, grazie.ai
 DOMAIN-SUFFIX, grazie.aws.intellij.net
