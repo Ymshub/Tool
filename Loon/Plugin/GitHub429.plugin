@@ -1,0 +1,6 @@
+[Rewrite]
+# 解决github速率限制返回429问题
+^https://.*\.githubusercontent\.com\/ header-replace Accept-Language en-us
+^https:\/\/github\.com\/ header-replace Accept-Language en-us
+[MITM]
+hostname = *.githubusercontent.com,github.com
