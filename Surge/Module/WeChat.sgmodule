@@ -90,7 +90,7 @@ IP-ASN,132203,{{{Proxy}}}, no-resolve
 [Script]
 
 #微信外部链接解锁 weixin110.qq.com, security.wechat.com
-微信外部链接解锁 = type=http-response, pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://kelee.one/Resource/Script/Weixin/Weixin_external_links_unlock.js, requires-body=true
+微信外部链接解锁 = type=http-response, pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://kelee.one/Resource/JavaScript/Weixin/Weixin_external_links_unlock.js, requires-body=true
 
 [MITM]
 hostname = %APPEND% mp.weixin.qq.com, weixin110.qq.com, security.wechat.com 
