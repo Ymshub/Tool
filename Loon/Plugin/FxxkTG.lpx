@@ -1,10 +1,12 @@
 #!name = Fuck Telegram bad IPs
 #!desc = 将 tg 的垃圾 IP 转移到好的 IP 上
-#!author = mieqq
+#!openUrl = https://apps.apple.com/app/id6471879502
+#!author = Ymshub[https://github.com/Ymshub]
 #!system = iOS,iPadOS,tvOS,macOS
 #!system_version = 
 #!loon_version = 3.3.2(877)
-#!homepage = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Swiftgram.png
+#!homepage = 
+#!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Swiftgram.png
 
 [Host]
 # Fuck Telegram bad ips
