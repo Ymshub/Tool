@@ -1,0 +1,22 @@
+#!name = Fuck Telegram bad IPs
+#!desc = 将 tg 的垃圾 IP 转移到好的 IP 上
+#!author = mieqq
+#!system = iOS,iPadOS,tvOS,macOS
+#!system_version = 
+#!loon_version = 3.3.2(877)
+#!homepage = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+
+[Host]
+# Fuck Telegram bad ips
+149.154.175.100 = 149.154.175.53, use-in-proxy=true
+149.154.175.117 = 149.154.175.53, use-in-proxy=true
+149.154.175.50 = 149.154.175.53, use-in-proxy=true
+149.154.175.10 = 149.154.175.53, use-in-proxy=true
+149.154.175.54 = 149.154.175.53, use-in-proxy=true
+149.154.175.55 = 149.154.175.53, use-in-proxy=true
+149.154.175.56 = 149.154.175.53, use-in-proxy=true
+149.154.175.57 = 149.154.175.53, use-in-proxy=true
+149.154.175.58 = 149.154.175.53, use-in-proxy=true
+149.154.175.101 = 149.154.175.53, use-in-proxy=true
+149.154.175.102 = 149.154.175.53, use-in-proxy=true
+149.154.175.103 = 149.154.175.53, use-in-proxy=true
