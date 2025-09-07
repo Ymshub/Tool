@@ -1,9 +1,13 @@
-#!name=Talkatone
-#!desc=Talkatone 日常使用模块
+#!name = Talkatone
+#!desc = Talkatone 日常使用模块
+#!openUrl = https://apps.apple.com/us/app/talkatone-wifi-text-calls/id397648381
+#!author = LOWERTOP[https://github.com/LOWERTOP]
+#!system_version = 
+#!loon_version = 3.3.2(877)
+#!homepage = https://github.com/LOWERTOP/Shadowrocket-First
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/1024px/Talkatone.png
 # 本模块主要为 Talkatone 进行策略分流，解决使用某些节点时无法直接使用 Talkatone 的问题，并附带 Talkatone 去广告规则，可去除 APP 内的部分第三方广告
 # 本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册，若尝试登录时失败可以将 tktn.at 的策略改为 DIRECT 后再试，成功后改回本来策略或重新更新本模块
-# 整理作者：https://github.com/LOWERTOP
-# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
 # 以下为该软件部分去广告规则
