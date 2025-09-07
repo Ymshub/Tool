@@ -3,55 +3,55 @@
 "description":"For xSix", 
 "icons":
     [
-	{"name":"1111", "url":"https://zzdm.de/Emby/1111.png"},
+	{"name":"1111", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/1111.png"},
 
-	{"name":"ACA", "url":"https://zzdm.de/Emby/ACA.png"},
-	{"name":"AWA", "url":"https://zzdm.de/Emby/AWA.png"},
+	{"name":"ACA", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/ACA.png"},
+	{"name":"AWA", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/AWA.png"},
 
-	{"name":"Bgk", "url":"https://zzdm.de/Emby/Bgk.png"},
+	{"name":"Bgk", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Bgk.png"},
 
-	{"name":"Cc", "url":"https://zzdm.de/Emby/Cc.png"},
-	{"name":"Charon", "url":"https://zzdm.de/Emby/Charon.png"},
+	{"name":"Cc", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Cc.png"},
+	{"name":"Charon", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Charon.png"},
 
-	{"name":"DaV", "url":"https://zzdm.de/Emby/DaV.png"},
+	{"name":"DaV", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/DaV.png"},
 
-	{"name":"EmbyClub", "url":"https://zzdm.de/Emby/EmbyClub.png"},
+	{"name":"EmbyClub", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/EmbyClub.png"},
 
-	{"name":"Heisi", "url":"https://zzdm.de/Emby/Heisi.png"},
-	{"name":"HKA", "url":"https://zzdm.de/Emby/HKA.png"},
-	{"name":"Hxd", "url":"https://zzdm.de/Emby/Hxd.png"},
-	{"name":"HxdPorn", "url":"https://zzdm.de/Emby/HxdPorn.png"},
+	{"name":"Heisi", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Heisi.png"},
+	{"name":"HKA", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/HKA.png"},
+	{"name":"Hxd", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Hxd.png"},
+	{"name":"HxdPorn", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/HxdPorn.png"},
 
-	{"name":"Jms", "url":"https://zzdm.de/Emby/Jms.png"},
+	{"name":"Jms", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Jms.png"},
 
-	{"name":"Lyrebird", "url":"https://zzdm.de/Emby/Lyrebird.png"},
+	{"name":"Lyrebird", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Lyrebird.png"},
 
-	{"name":"Marmot", "url":"https://zzdm.de/Emby/Marmot.png"},
-	{"name":"MisakaF", "url":"https://zzdm.de/Emby/MisakaF.png"},
-	{"name":"Misty", "url":"https://zzdm.de/Emby/Misty.png"},
+	{"name":"Marmot", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Marmot.png"},
+	{"name":"MisakaF", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/MisakaF.png"},
+	{"name":"Misty", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Misty.png"},
 	    
-	{"name":"Nanflix", "url":"https://zzdm.de/Emby/Nanflix.png"},
-	{"name":"Nebula", "url":"https://zzdm.de/Emby/Nebula.png"},
+	{"name":"Nanflix", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Nanflix.png"},
+	{"name":"Nebula", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Nebula.png"},
 
-	{"name":"Paul", "url":"https://zzdm.de/Emby/Paul.png"},
-	{"name":"Peach", "url":"https://zzdm.de/Emby/Peach.png"},
-	{"name":"PiliPili", "url":"https://zzdm.de/Emby/PiliPili.png"},
-	{"name":"Polo", "url":"https://zzdm.de/Emby/Polo.png"},
-	{"name":"Pornemby", "url":"https://zzdm.de/Emby/Pornemby.png"},
+	{"name":"Paul", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Paul.png"},
+	{"name":"Peach", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Peach.png"},
+	{"name":"PiliPili", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/PiliPili.png"},
+	{"name":"Polo", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Polo.png"},
+	{"name":"Pornemby", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Pornemby.png"},
 
-	{"name":"Rainbow", "url":"https://zzdm.de/Emby/Rainbow.png"},
+	{"name":"Rainbow", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Rainbow.png"},
 
-	{"name":"Shufu", "url":"https://zzdm.de/Emby/Shufu.png"},
-	{"name":"StarCat", "url":"https://zzdm.de/Emby/StarCat.png"},
+	{"name":"Shufu", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Shufu.png"},
+	{"name":"StarCat", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/StarCat.png"},
 
-	{"name":"TanhuaTV", "url":"https://zzdm.de/Emby/TanhuaTV.png"},
-	{"name":"TeCar", "url":"https://zzdm.de/Emby/TeCar.png"},
-	{"name":"Temby", "url":"https://zzdm.de/Emby/Temby.png"},
+	{"name":"TanhuaTV", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/TanhuaTV.png"},
+	{"name":"TeCar", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/TeCar.png"},
+	{"name":"Temby", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Temby.png"},
 
-	{"name":"Yeshou", "url":"https://zzdm.de/Emby/Yeshou.png"},
-	{"name":"Yinhe", "url":"https://zzdm.de/Emby/Yinhe.png"},
+	{"name":"Yeshou", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Yeshou.png"},
+	{"name":"Yinhe", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Yinhe.png"},
 
-	{"name":"Zhipianren", "url":"https://zzdm.de/Emby/Zhipianren.png"},
-	{"name":"Zhongdianzhan", "url":"https://zzdm.de/Emby/Zhongdianzhan.png"},
+	{"name":"Zhipianren", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Zhipianren.png"},
+	{"name":"Zhongdianzhan", "url":"https://raw.githubusercontent.com/Ymshub/Emby/X/Zhongdianzhan.png"},
     ]
 }

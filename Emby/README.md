@@ -1,0 +1,2 @@
+# Emby
+Selfuse for Emby
