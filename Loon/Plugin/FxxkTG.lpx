@@ -4,9 +4,10 @@
 #!author = Ymshub[https://github.com/Ymshub]
 #!system = iOS,iPadOS,tvOS,macOS
 #!system_version = 
-#!loon_version = 3.3.2(877)
-#!homepage = 
+#!loon_version = 3.3.4(895)
+#!homepage = https://lvll.de
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Swiftgram.png
+#!date = 2025-09-09 00:00
 
 [Host]
 # Fuck Telegram bad ips
