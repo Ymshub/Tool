@@ -1,8 +1,13 @@
 #!name=DeepSeek
 #!desc=DeepSeek 代理模块
+#!openUrl = https://apps.apple.com/app/id6737597349
+#!author = LOWERTOP[https://github.com/LOWERTOP]
+#!system_version = 
+#!loon_version = 3.3.4(895)
+#!homepage = https://github.com/LOWERTOP/Shadowrocket-First
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/1024px/DeepSeek.png
+#!date = 2025-09-09 00:00
 # 本模块主要为 DeepSeek 进行分流，可使用其他登录方式注册和登录，并尝试屏蔽上传信息的地址
-# 整理作者：https://github.com/LOWERTOP
-# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
 # 以下为该软件的疑似上传地址
@@ -11,14 +16,14 @@ DOMAIN-SUFFIX,gator.volces.com,REJECT-DROP
 DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 
 # 以下为该软件可能需代理地址
-DOMAIN-KEYWORD,deepseek,Proxy
-DOMAIN-SUFFIX,deepseek.com,Proxy
-DOMAIN-SUFFIX,fengkongcloud.cn,Proxy
-DOMAIN-SUFFIX,fengkongcloud.com,Proxy
-DOMAIN-SUFFIX,portal101.cn,Proxy
-DOMAIN-SUFFIX,portal101.com,Proxy
-DOMAIN-SUFFIX,sentry.io,Proxy
-DOMAIN-SUFFIX,volces.com,Proxy
-DOMAIN-SUFFIX,intercom.io,Proxy
-DOMAIN-SUFFIX,intercom.com,Proxy
-DOMAIN-SUFFIX,intercomcdn.com,Proxy
+DOMAIN-KEYWORD,deepseek,PROXY
+DOMAIN-SUFFIX,deepseek.com,PROXY
+DOMAIN-SUFFIX,fengkongcloud.cn,PROXY
+DOMAIN-SUFFIX,fengkongcloud.com,PROXY
+DOMAIN-SUFFIX,portal101.cn,PROXY
+DOMAIN-SUFFIX,portal101.com,PROXY
+DOMAIN-SUFFIX,sentry.io,PROXY
+DOMAIN-SUFFIX,volces.com,PROXY
+DOMAIN-SUFFIX,intercom.io,PROXY
+DOMAIN-SUFFIX,intercom.com,PROXY
+DOMAIN-SUFFIX,intercomcdn.com,PROXY
