@@ -1,7 +1,13 @@
 #!name=Kelee 资源预览
 #!desc=预览资源，而不是下载
-#!homepage=https://github.com/luestr/ProxyResource/tree/main?tab=readme-ov-file#插件列表
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/KeLee.png
+#!openUrl = https://pluginhub.kelee.one
+#!author = Ymshub[https://github.com/Ymshub]
+#!system = iOS,iPadOS,tvOS,macOS
+#!system_version = 
+#!loon_version = 3.3.4(895)
+#!homepage = https://pluginhub.kelee.one
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/KeLee.png
+#!date = 2025-09-09 00:00
 
 [Rewrite]
 ^https:\/\/(.*\.)?kelee\.one(\/.*)? header-replace User-Agent Surge\x20iOS/9527
