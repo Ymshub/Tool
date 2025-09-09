@@ -1,11 +1,11 @@
 #!name=Kelee 资源预览
 #!desc=预览资源，而不是下载
-#!openUrl = https://pluginhub.kelee.one
+#!openUrl = https://hub.kelee.one
 #!author = Ymshub[https://github.com/Ymshub]
 #!system = iOS,iPadOS,tvOS,macOS
 #!system_version = 
 #!loon_version = 3.3.4(895)
-#!homepage = https://pluginhub.kelee.one
+#!homepage = https://hub.kelee.one
 #!icon = https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/KeLee.png
 #!date = 2025-09-09 00:00
 
