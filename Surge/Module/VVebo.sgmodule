@@ -1,0 +1,13 @@
+#!name=VVebo 时间线修复
+#!desc=修复 VVebo 失效的用户时间线
+#!author=@suiyuran @keywos
+#!category=脚本
+
+[Script]
+
+Vvebo-request = type=http-request, pattern=^https:\/\/api\.weibo\.cn\/2\/(users\/show\?|statuses\/user_timeline\?), script-path=https://lvll.de/Surge/JavaScript/VVebo.js, requires-body=true
+
+Vvebo_response = type=http-response, pattern=^https:\/\/api\.weibo\.cn\/2\/profile\/statuses\/tab\?, script-path=https://lvll.de/Surge/JavaScript/VVebo.js, requires-body=true
+
+[MITM]
+hostname = %APPEND% api.weibo.cn
