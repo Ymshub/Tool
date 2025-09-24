@@ -1,0 +1,18 @@
+{
+  "name": "Loon Icon",
+  "description": "For Loon",
+  "icons": [  
+    {
+      "name": "NodeSeek",
+      "url": "https://lvll.de/Loon/Icon/NodeSeek.png"
+    },
+    {
+      "name": "Telegram",
+      "url": "https://lvll.de/Loon/Icon/Telegram.png"
+    },
+    {
+      "name": "Weather",
+      "url": "https://lvll.de/Loon/Icon/Weather.png"
+    },
+  ]
+}
