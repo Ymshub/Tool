@@ -1,0 +1,23 @@
+#!name=Rules
+#!desc=Rule Module
+#!category=
+
+[Rule]
+
+# > ip-api
+DOMAIN-SUFFIX,ip-api.com,Proxy
+DOMAIN-SUFFIX,speedtest.cn,DIRECT
+DOMAIN-SUFFIX,ip.im,DIRECT
+
+# > 阡陌居
+DOMAIN-SUFFIX,1000qm.vip,DIRECT
+
+# > Safari 防跳转
+DOMAIN,app-site-association.cdn-apple.com,REJECT,extended-matching
+
+# > 防止 Telegram 加载转圈
+IP-CIDR,95.161.76.100/31,REJECT,no-resolve,pre-matching
+IP-CIDR,5.28.195.1/32,REJECT-NO-DROP,no-resolve,pre-matching
+
+# > 拒绝国家反诈中心请求
+DOMAIN-SUFFIX,gjfzpt.cn,REJECT,extended-matching
