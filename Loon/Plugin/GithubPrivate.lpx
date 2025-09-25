@@ -1,0 +1,38 @@
+#!name = 访问 GitHub/Gist 私有仓库
+#!desc = 允许用户访问  GitHub API、Raw 文件、Gist、Releases 等私有仓库
+#!openUrl = www.github.com
+#!author = Ymshub[https://github.com/Ymshub]
+#!tag = 功能增强
+#!system = iOS,iPadOS,tvOS,macOS
+#!system_version = 
+#!loon_version = 3.3.4(898)
+#!homepage = https://lvll.de
+#!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/GitHub-01.png
+#!date = 2025-09-25 12:00
+# [Token获取方式]\n头像菜单 -> Settings -> Developer settings -> Personal access tokens -> Generate new token -> 在权限列表中找到并勾选 repo 和 gist 权限然后提交生成
+
+[Argument]
+USERNAME=input,GITHUB_USERNAME,tag=USERNAME, desc=填入GitHub的用户名
+TOKEN=input,GITHUB_TOKEN,tag=TOKEN, desc=填入GitHub生成的Token
+
+[Rewrite]
+# GitHub API 访问（私有仓库文件内容）
+^https?:\/\/api\.github\.com\/repos\/{USERNAME}\/.*\/contents\/.* header-del Authorization
+^https?:\/\/api\.github\.com\/repos\/{USERNAME}\/.*\/contents\/.* header-add Authorization "token {TOKEN}"
+
+# Raw 文件访问（私有仓库）
+^https?:\/\/raw\.githubusercontent\.com\/{USERNAME}\/.* header-del Authorization
+^https?:\/\/raw\.githubusercontent\.com\/{USERNAME}\/.* header-add Authorization "token {TOKEN}"
+
+# Gist 访问（私有 Gist 文件）
+^https?:\/\/gist\.github\.com\/{USERNAME}\/.* header-del Authorization
+^https?:\/\/gist\.github\.com\/{USERNAME}\/.* header-add Authorization "token {TOKEN}"
+^https?:\/\/gist\.githubusercontent\.com\/{USERNAME}\/.* header-del Authorization
+^https?:\/\/gist\.githubusercontent\.com\/{USERNAME}\/.* header-add Authorization "token {TOKEN}"
+
+# Releases 访问（私有仓库的下载链接）
+^https?:\/\/github\.com\/{USERNAME}\/.*\/releases\/download\/.* header-del Authorization
+^https?:\/\/github\.com\/{USERNAME}\/.*\/releases\/download\/.* header-add Authorization "token {TOKEN}"
+
+[MITM]
+hostname = raw.githubusercontent.com, gist.githubusercontent.com, api.github.com, github.com
