@@ -8,3 +8,6 @@
 # 私库认证
 http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/{{{USERNAME}}} header-del Authorization
 http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/{{{USERNAME}}} header-add Authorization "token {{{TOKEN}}}"
+
+[MITM]
+hostname = %APPEND% raw.githubusercontent.com, gist.githubusercontent.com
