@@ -9,11 +9,12 @@
 #!homepage = https://lvll.de
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/GitHub-01.png
 #!date = 2025-09-25 12:00
-# [Token获取方式]\n头像菜单 -> Settings -> Developer settings -> Personal access tokens -> Generate new token -> 在权限列表中找到并勾选 repo 和 gist 权限然后提交生成
+# [Token获取方式]
+# 头像菜单 -> Settings -> Developer settings -> Personal access tokens -> Generate new token -> 在权限列表中找到并勾选 repo 和 gist 权限然后提交生成
 
 [Argument]
-USERNAME=input,GITHUB_USERNAME,tag=USERNAME, desc=填入GitHub的用户名
-TOKEN=input,GITHUB_TOKEN,tag=TOKEN, desc=填入GitHub生成的Token
+USERNAME=input,"GITHUB_USERNAME",tag=USERNAME, desc=填入GitHub的用户名
+TOKEN=input,"GITHUB_TOKEN",tag=TOKEN, desc=填入GitHub生成的Token
 
 [Rewrite]
 # GitHub API 访问（私有仓库文件内容）
