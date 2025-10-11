@@ -3,10 +3,10 @@
 #!openUrl = https://apps.apple.com/app/id397648381
 #!author = LOWERTOP[https://github.com/LOWERTOP]
 #!system_version = 
-#!loon_version = 3.3.3(894)
+#!loon_version = 3.3.4(895)
 #!homepage = https://github.com/LOWERTOP/Shadowrocket-First
 #!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/1024px/Talkatone.png
-#!date = 2025-09-09 00:00
+#!date = 2025-10-12 00:00
 # 本模块主要为 Talkatone 进行策略分流，解决使用某些节点时无法直接使用 Talkatone 的问题，并附带 Talkatone 去广告规则，可去除 APP 内的部分第三方广告
 # 本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册，若尝试登录时失败可以将 tktn.at 的策略改为 DIRECT 后再试，成功后改回本来策略或重新更新本模块
 
@@ -78,12 +78,14 @@ DOMAIN-SUFFIX,vst.c.appier.net,REJECT
 DOMAIN-SUFFIX,wv.inner-active.mobi,REJECT
 DOMAIN-SUFFIX,www.googletagservices-cn.com,REJECT
 
+# 节点质量判断地址，需要特定节点代理
+DOMAIN-WILDCARD,relay-*.tktn.be,PROXY
 # 以下为该软件可能需要走代理的规则
 DOMAIN-SUFFIX,tktn.at,PROXY
 DOMAIN-SUFFIX,tktn.be,PROXY
 # 语音留言地址，一般需要代理
 DOMAIN-SUFFIX,vm.talkatone.com,PROXY
-# 贴图服务
+# 贴图服务地址，一般需要代理
 DOMAIN-SUFFIX,tenor.com,PROXY
 
 # 以下为该软件可能需要走直连的规则
@@ -107,4 +109,4 @@ IP-CIDR,69.46.75.0/24,DIRECT,no-resolve
 # ^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
 # ^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
 # [MITM]
-# hostname = %APPEND% alt-r.my.com, imgx.jampp.com
+# hostname = alt-r.my.com, imgx.jampp.com
