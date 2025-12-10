@@ -46,21 +46,14 @@ IP-CIDR,17.253.150.10 # Tether 服务节点
 
 DOMAIN-SUFFIX,icloud.com # iCloud 云服务主域名
 DOMAIN-SUFFIX,icloud-content.com # iCloud 内容下载域名
-DOMAIN-SUFFIX,icloud.com.cn # 中国区 iCloud 接入（云上贵州）
 DOMAIN-SUFFIX,me.com # Apple 旧邮箱服务
 DOMAIN-SUFFIX,mac.com # Apple 旧域名服务
 DOMAIN-SUFFIX,keyvalueservice.icloud.com # iCloud 同步配置服务
 DOMAIN-SUFFIX,setup.icloud.com # iCloud 设备配置与注册入口
 DOMAIN-SUFFIX,content.icloud.com # 云盘同步服务接口
 DOMAIN-SUFFIX,gateway.icloud.com # iCloud 通信中继（国际）
-DOMAIN-SUFFIX,gateway.icloud.com.cn # iCloud 通信中继（中国）
-DOMAIN-SUFFIX,p212-contacts.icloud.com.cn # 通讯录同步服务
-DOMAIN-SUFFIX,p212-quota.icloud.com.cn # 配额管理服务
-DOMAIN-SUFFIX,p212-mcc.icloud.com.cn # 配置管理节点
 DOMAIN-SUFFIX,mask.icloud.com # 隐私邮箱转发服务（隐藏我的邮箱）
 DOMAIN-SUFFIX,mask-h2.icloud.com # 隐私邮箱 HTTP/2 通道
-DOMAIN-SUFFIX,mail.icloud.com.cn  # Apple iCloud 国区邮件服务域名
-DOMAIN-SUFFIX,p212-imap.mail.icloud.com.cn # Apple iCloud 国区邮件服务域名
 IP-CIDR,139.178.128.0/18 # Apple iCloud 数据中心段
 IP-CIDR,17.252.203.148 # Apple 后台服务节点，常用于推送通知、iCloud 同步与 App Store 请求
 
@@ -103,16 +96,13 @@ DOMAIN-SUFFIX,apple-relay.fastly-edge.com # iCloud Relay（Fastly）
 DOMAIN-SUFFIX,ohttp-relay1.fastly-edge.com # OHTTP 中继节点（Fastly）
 DOMAIN-SUFFIX,apple-relay.cloudflare.com # 中继节点（Cloudflare）
 DOMAIN-SUFFIX,cp10.cloudflare.com # Cloudflare 托管节点
-DOMAIN-SUFFIX,api.smoot.apple.cn # 中国区透明性平台 API
 DOMAIN-SUFFIX,apple-dns.net # Apple 公共 DNS 域名
-DOMAIN-SUFFIX,apple-dns.cn # Apple 中国区 DNS 域名
 IP-CIDR,65.199.22.0/23 # Apple Relay 与配置服务段
 
 # > 开发者与测试服务（Developer & Beta Services）
 
 DOMAIN-SUFFIX,developer.apple.com # Apple 开发者网站
 DOMAIN-SUFFIX,testflight.apple.com # TestFlight 测试分发平台
-DOMAIN-SUFFIX,testflight.apple.com.cn # TestFlight 中国加速镜像域名
 DOMAIN-SUFFIX,appleworldwidedeveloper.hb-api.omtrdc.net # WWDC 分析节点（高带宽）
 DOMAIN-SUFFIX,appleworldwidedeveloper.sc.omtrdc.net # WWDC 分析节点（南加州）
 DOMAIN-SUFFIX,beatselectronicsllc.tt.omtrdc.net # Beats by Dre 服务统计
@@ -162,7 +152,6 @@ DOMAIN-SUFFIX,mapkitjs.apple.com # Apple MapKit JS 服务
 DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com # Apple 定位服务器
 DOMAIN-SUFFIX,gspe1-ssl.apple.com # Apple 定位服务器
 DOMAIN-SUFFIX,gspe35-ssl.ls.apple.com # Apple 定位服务器
-DOMAIN-SUFFIX,gs-loc-cn.apple.com # Apple 中国区定位服务
 DOMAIN-SUFFIX,gs-loc.apple.com # Apple 全球定位服务
 IP-CIDR,63.92.224.0/19 # Apple Maps / CDN 服务段
 PROCESS-NAME,locationd # Apple 定位系统核心进程
