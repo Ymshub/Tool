@@ -1,0 +1,50 @@
+#!name = Embys
+#!desc = Emby Plugin Extension
+#!openUrl = 
+#!author = Ymshub[https://github.com/Ymshub]
+#!system = iOS,iPadOS,tvOS,macOS
+#!system_version = 
+#!loon_version = 3.3.7(921)
+#!homepage = https://lvll.de
+#!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Emby-01.png
+#!date = 2025-12-20 00:00
+
+[Rule]
+
+# > 弹幕
+DOMAIN,api.dandanplay.net,PROXY
+# > Trakt
+DOMAIN,trakt.tv,PROXY
+# Emby 服务器域名分流 (请自行添加或修改你的 Emby 服务器域名)
+DOMAIN-SUFFIX,xmsl.org,PROXY
+DOMAIN-SUFFIX,coemn.com,PROXY
+DOMAIN-SUFFIX,embycc.link,PROXY
+DOMAIN-SUFFIX,charontv.com,PROXY
+DOMAIN-SUFFIX,viclub.top,PROXY
+DOMAIN-SUFFIX,emby.kim,PROXY
+DOMAIN-SUFFIX,aliz.work,PROXY
+DOMAIN-SUFFIX,as174.de,PROXY
+DOMAIN-SUFFIX,nanflix.net,PROXY
+DOMAIN-SUFFIX,nebula-media.org,PROXY
+DOMAIN-SUFFIX,embymv.link,PROXY
+DOMAIN-SUFFIX,pilipiliultra.com,PROXY
+DOMAIN-SUFFIX,poloemby.xyz,PROXY
+DOMAIN-SUFFIX,pornemby.com,PROXY
+DOMAIN-SUFFIX,28.al,PROXY
+DOMAIN-SUFFIX,feiyue.lol,PROXY
+DOMAIN-SUFFIX,carlos.trade,PROXY
+DOMAIN-SUFFIX,heisi.org,PROXY
+DOMAIN-SUFFIX,embyplus.org,PROXY
+DOMAIN-SUFFIX,pub1.emby.wtf,PROXY
+DOMAIN-SUFFIX,pub1.term.wtf,PROXY
+DOMAIN-SUFFIX,pub1back.emby.wtf,PROXY
+DOMAIN-SUFFIX,pub1cf.emby.wtf,PROXY
+DOMAIN-SUFFIX,pub2.emby.wtf,PROXY
+DOMAIN-SUFFIX,pub2.term.wtf,PROXY
+DOMAIN-SUFFIX,pub2back.emby.wtf,PROXY
+DOMAIN-SUFFIX,pub2cf.emby.wtf,PROXY
+DOMAIN-SUFFIX,pub3.emby.wtf,PROXY
+DOMAIN-SUFFIX,pub3.term.wtf,PROXY
+DOMAIN-SUFFIX,pub3back.emby.wtf,PROXY
+DOMAIN-SUFFIX,pub3cf.emby.wtf,PROXY
+DOMAIN-SUFFIX,violet.run,PROXY
