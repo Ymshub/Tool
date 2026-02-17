@@ -24,3 +24,5 @@ DOMAIN-SUFFIX,gjfzpt.cn,REJECT,extended-matching
 
 # > MMuMuPlayer Pro for Mac 破解版
 DOMAIN,mumu.nie.netease.com,REJECT
+DOMAIN,api-pro.mumu.163.com,REJECT
+DOMAIN,shence.netease.com,REJECT
