@@ -49,8 +49,3 @@ DOMAIN,router.asus.com,DIRECT
 
 # > 阻止电报频繁请求
 AND,((PROCESS-NAME,Telegram), (OR,((IP-CIDR,0.0.0.0/8), (IP-CIDR,224.0.0.0/4)))),REJECT
-
-# > MMuMuPlayer Pro for Mac 破解版
-DOMAIN,mumu.nie.netease.com,REJECT
-DOMAIN,api-pro.mumu.163.com,REJECT
-DOMAIN,shence.netease.com,REJECT
