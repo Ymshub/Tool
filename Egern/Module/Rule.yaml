@@ -1,0 +1,41 @@
+name: Rules
+description: Rule Module
+compat_arguments:
+  PROXY: PROXY
+compat_arguments_schema:
+  PROXY:
+    name: PROXY
+    description: 代理规则使用的策略
+    default_value: PROXY
+dns: {}
+rules:
+- domain_suffix:
+    match: ip-api.com
+    policy: Proxy
+- domain_suffix:
+    match: speedtest.cn
+    policy: DIRECT
+- domain_suffix:
+    match: ip.im
+    policy: DIRECT
+- domain_suffix:
+    match: 1000qm.vip
+    policy: DIRECT
+- domain:
+    match: app-site-association.cdn-apple.com
+    policy: REJECT
+- ip_cidr:
+    match: 95.161.76.100/31
+    policy: REJECT
+    no_resolve: true
+- ip_cidr:
+    match: 5.28.195.1/32
+    policy: REJECT-NO-DROP
+    no_resolve: true
+- domain_suffix:
+    match: gjfzpt.cn
+    policy: REJECT
+mitm:
+  hostnames:
+    includes:
+    - www.google.com
