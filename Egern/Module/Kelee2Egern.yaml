@@ -1,0 +1,19 @@
+name: Kelee2Egern
+description: 支持可莉插件中心的插件给Egern使用; 非Loon用户切勿反馈插件任何问题，尊重原创; 插件中心网址 https://pluginhub.kelee.one, https://hub.kelee.one
+icon: https://iili.io/BDPVJ1I.png
+homepage: https://hub.kelee.one
+body_rewrites:
+  - response_regex:
+      match: https://(pluginhub|hub)\.kelee\.one/
+      find: loon://import\?plugin=
+      replace: egern:///modules/new?url=
+  - response_regex:
+      match: https://surge\.qingr\.moe/
+      find: surge:///install-module\?url=
+      replace: egern:///modules/new?url=
+mitm:
+  hostnames:
+    includes:
+      - pluginhub.kelee.one
+      - hub.kelee.one
+      - surge.qingr.moe
