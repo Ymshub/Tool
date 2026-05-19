@@ -1,6 +1,7 @@
 name: 黑料不打烊净化
 description: hlwxx_remove_ads
 author: 怎么肥事[https://github.com/ZenmoFeiShi]
+icon: https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1010.png
 dns: {}
 url_rewrites:
 - match: ^https?:\/\/stats\.kwvprfcr\.xyz
