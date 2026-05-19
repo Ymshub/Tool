@@ -33,6 +33,12 @@ rules:
     match: 5.28.195.1/32
     policy: REJECT-NO-DROP
     no_resolve: true
+- domain:
+    match: prpr.96110.cn.com
+    policy: DIRECT
+- domain_keyword:
+    match: '96110'
+    policy: REJECT
 - domain_suffix:
     match: gjfzpt.cn
     policy: REJECT
