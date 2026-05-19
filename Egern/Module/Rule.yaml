@@ -1,5 +1,6 @@
 name: Rules
 description: Rule Module
+icon: https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Egern-02.png
 compat_arguments:
   PROXY: PROXY
 compat_arguments_schema:
