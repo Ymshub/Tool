@@ -1,0 +1,20 @@
+name: VVebo 时间线修复
+description: 修复 VVebo 失效的用户时间线
+author: '@suiyuran @keywos'
+icon: https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/VVebo.png
+dns: {}
+scriptings:
+- http_request:
+    name: Vvebo-request
+    match: ^https:\/\/api\.weibo\.cn\/2\/(users\/show\?|statuses\/user_timeline\?)
+    script_url: https://raw.githubusercontent.com/Keywos/rule/main/JS/vv.js
+    body_required: true
+- http_response:
+    name: Vvebo_response
+    match: ^https:\/\/api\.weibo\.cn\/2\/profile\/statuses\/tab\?
+    script_url: https://raw.githubusercontent.com/Keywos/rule/main/JS/vv.js
+    body_required: true
+mitm:
+  hostnames:
+    includes:
+    - api.weibo.cn
