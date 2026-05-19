@@ -7,7 +7,7 @@
 
 name: "Egern 桌面小组件合集"
 description: "包含：岁时黄历、时光倒数、网络信息、全国油价"
-
+icon: https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Fallback.png
 auto_update:
   interval: 43200
 
