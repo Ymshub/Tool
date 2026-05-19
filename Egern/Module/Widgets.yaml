@@ -26,37 +26,10 @@ env_schema:
     description: "高亮置顶的节日名称，多个用英文逗号分隔"
     default_value: "高考"
 
-  SHOW_SCHOOL_HOLIDAYS:
-    name: 🏫 [倒数] 显示春假和秋假
-    description: "是否在倒数面板中显示春假和秋假"
-    options: ["true", "false"]
-    default_value: "false"
-
-  SPRING_BREAK_DATE:
-    name: 🌸 [倒数] 春假手动设置
-    description: "格式 MM/DD，留空则不显示该假期"
-    default_value: ""
-
-  AUTUMN_BREAK_DATE:
-    name: 🍂 [倒数] 秋假手动设置
-    description: "格式 MM/DD，留空则不显示该假期"
-    default_value: ""
-
-  QINGMING_DATE:
-    name: 🌿 [倒数] 清明节调休覆盖
-    description: "格式 MM/DD，用于手动修正调休偏差。留空则系统进行高精度天文节气计算"
-    default_value: ""
-
   # ── [时光倒数] 排序与主题区 ──────────────────────────────────────────────
   ENABLE_PRIORITY_SORT:
     name: 🔢 [倒数] 启用优先级排序
     description: "开启后，重点节日（如春节、国庆等）自动前置显示"
-    options: ["true", "false"]
-    default_value: "true"
-
-  ENABLE_EXCLUSIVE_WEIGHT:
-    name: ⬆️ [倒数] 提高专属纪念日权重
-    description: "开启后，专属纪念日在同日期竞争时优先展示"
     options: ["true", "false"]
     default_value: "true"
 
