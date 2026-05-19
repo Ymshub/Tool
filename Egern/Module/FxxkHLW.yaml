@@ -1,0 +1,34 @@
+name: 黑料不打烊净化
+description: hlwxx_remove_ads
+author: 怎么肥事[https://github.com/ZenmoFeiShi]
+dns: {}
+url_rewrites:
+- match: ^https?:\/\/stats\.kwvprfcr\.xyz
+  location: http://reject/
+  status_code: 307
+- match: ^https?:\/\/mc\.yandex\.ru
+  location: http://reject/
+  status_code: 307
+scriptings:
+- http_request:
+    name: replaceHeader
+    match: ^https?:\/\/(?:www\.)?hl(?:wxx|cx\d*)\.com\/(?:$|\?|archives\/|category\/|memora|search|index\.htm)
+    script_url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/replace-header.js
+    env:
+      _compat.$argument: (%5Cr%5Cn)Accept-Encoding%3A.%2B(%5Cr%5Cn)-%3E%241Accept-Encoding%3A%20identity%242
+    timeout: 30
+- http_response:
+    name: hlwxx_remove_ads
+    match: ^https?:\/\/(?:www\.)?hl(?:wxx|cx\d*)\.com\/(?:$|\?|archives\/|category\/|memora|search|index\.htm)
+    script_url: https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/hlwxx_remove_ads.js
+    max_size: -1
+    timeout: 60
+    body_required: true
+mitm:
+  hostnames:
+    includes:
+    - '*.hlwxx.com'
+    - '*.hlcx16.com'
+    - stats.kwvprfcr.xyz
+    - mc.yandex.ru
+    - hlwxx.com
