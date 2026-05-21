@@ -7,6 +7,7 @@
 
 name: "Egern 桌面小组件合集"
 description: "包含：岁时黄历、时光倒数、网络信息、全国油价、服务器监控"
+icon: https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Fallback.png
 
 auto_update:
   interval: 43200
@@ -18,19 +19,19 @@ env_schema:
     name: 🔮 [黄历] 右上角显示模式
     description: "选择黄历面板右上角是显示星座，还是当年/当月周次"
     options: ["星座", "周次"]
-    default_value: "星座"
+    default_value: "周次"
 
   SHOW_TEACHING_WEEK:
     name: 📚 [黄历] 全局启用教学周
     description: "总开关。开启后，可在星座或周次模式旁展示教学周进度"
     options: ["true", "false"]
-    default_value: "true"
+    default_value: "false"
 
   SHOW_TEACHING_WEEK_IN_WEEK:
     name: 🔄 [黄历] 在周次模式下显示教学周
     description: "开启后，即使选择了「周次」，也会在周次文本前强制显示教学周进度"
     options: ["true", "false"]
-    default_value: "true"
+    default_value: "false"
 
   TEACHING_WEEK_START:
     name: 🗓️ [黄历] 教学周起始日期
@@ -47,12 +48,12 @@ env_schema:
     name: 🏫 [倒数] 显示春假和秋假
     description: "是否在倒数面板中显示春假和秋假"
     options: ["true", "false"]
-    default_value: "true"
+    default_value: "false"
 
   SPRING_BREAK_DATE:
     name: 🌸 [倒数] 春假手动设置
     description: "格式 MM/DD，留空则不显示该假期"
-    default_value: "04/01"
+    default_value: ""
 
   AUTUMN_BREAK_DATE:
     name: 🍂 [倒数] 秋假手动设置
@@ -68,13 +69,97 @@ env_schema:
     name: 📈 [倒数] 显示金融交割日
     description: "是否显示 A 股期指交割日与期权行权日"
     options: ["true", "false"]
-    default_value: "true"
+    default_value: "false"
 
   # ── [时光倒数] 排序与主题区 ──────────────────────────────────────────────
   ENABLE_PRIORITY_SORT:
     name: 🔢 [倒数] 启用优先级排序
+    description: "开启后，重点节日（如春节、国庆等）自动前置显示"
+    options: ["true", "false"]
+    default_value: "true"
 
-  # ── [服务器监控] 节点配置区 ──────────────────────────────────────────────
+  ENABLE_EXCLUSIVE_WEIGHT:
+    name: ⬆️ [倒数] 提高专属纪念日权重
+    description: "开启后，专属纪念日在同日期竞争时优先展示"
+    options: ["true", "false"]
+    default_value: "true"
+
+  ENABLE_WEEKEND_THEME:
+    name: 🎨 [倒数] 周末蓝调背景
+    description: "开启后，周六/周日自动切换为蓝调背景风格"
+    options: ["true", "false"]
+    default_value: "true"
+
+  SMALL_FORCE_FOUR_ROWS:
+    name: 📐 [倒数] 小号补足四行
+    description: "开启后，小号尺寸会从各类别补位，尽量保持四行展示"
+    options: ["true", "false"]
+    default_value: "true"
+
+  # ── [专属纪念日] 配置区 ──────────────────────────────────────────────────
+  EXCLUSIVE_NAME_1:
+    name: 🎁 [纪念日] 专属名称 1
+    description: "设定最重要的纪念日名称"
+    default_value: "我的生日"
+  EXCLUSIVE_DATE_1:
+    name: 📅 [纪念日] 专属日期 1
+    description: "日期格式必须严格为 MM/DD"
+    default_value: "11/10"
+
+  EXCLUSIVE_NAME_2:
+    name: 🎁 [纪念日] 专属名称 2
+    description: "留空则不显示该项"
+  EXCLUSIVE_DATE_2:
+    name: 📅 [纪念日] 专属日期 2
+
+  EXCLUSIVE_NAME_3:
+    name: 🎁 [纪念日] 专属名称 3
+    description: "留空则不显示该项"
+  EXCLUSIVE_DATE_3:
+    name: 📅 [纪念日] 专属日期 3
+
+  EXCLUSIVE_NAME_4:
+    name: 🎁 [纪念日] 专属名称 4
+    description: "留空则不显示该项"
+  EXCLUSIVE_DATE_4:
+    name: 📅 [纪念日] 专属日期 4
+
+  EXCLUSIVE_NAME_5:
+    name: 🎁 [纪念日] 专属名称 5
+    description: "留空则不显示该项"
+  EXCLUSIVE_DATE_5:
+    name: 📅 [纪念日] 专属日期 5
+
+  EXCLUSIVE_NAME_6:
+    name: 🎁 [纪念日] 专属名称 6
+    description: "留空则不显示该项"
+  EXCLUSIVE_DATE_6:
+    name: 📅 [纪念日] 专属日期 6
+
+  # ── [全国油价] 配置区 ────────────────────────────────────────────────────
+  GAS_REGION:
+    name: 📍 [油价] 查询地区拼音
+    description: "直辖市输入拼音，其他省份输入省份/省会拼音"
+    default_value: "jiangsu/nanjing"
+
+  # ── [服务器监控] 轮播与容错区 ────────────────────────────────────────────
+  SSH_CYCLE_DISABLED:
+    name: ⏸️ [监控] 禁用多节点轮播
+    description: "开启后，将锁定只显示第一台在线的服务器"
+    options: ["false", "true"]
+    default_value: "false"
+
+  SSH_CYCLE_EVERY:
+    name: 🔄 [监控] 轮播频率（次）
+    description: "控制多节点切换频率。设为 3 则每刷新 3 次切换一台。"
+    default_value: "1"
+    
+  SSH_RETRY_TIMES:
+    name: 🔁 [监控] 异常重试次数
+    description: "遇到网络波动时的防丢包重试次数（默认 2 次）"
+    default_value: "2"
+
+ # ── [服务器监控] 节点配置区 ──────────────────────────────────────────────
   SSH_SERVER_1_NAME:
     name: 🏷️ [节点1] 显示名称
     default_value: "Oracle"
