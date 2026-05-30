@@ -1,0 +1,22 @@
+name: V2EX 每日签到
+description: V2EX 每日签到领取铜币
+author: Curtinp118
+homepage: https://github.com/curtinp118/Surge5
+icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/04ProxySoft/V2ex.png
+dns: {}
+scriptings:
+- http_request:
+    name: V2EX 抓包
+    match: ^https://www\.v2ex\.com/(mission|member).*$
+    script_url: https://raw.githubusercontent.com/curtinp118/Scripthub/main/scripts/v2ex/v2ex.js
+    timeout: 10
+    body_required: true
+- schedule:
+    name: V2EX 签到
+    cron: 10 9 * * *
+    script_url: https://raw.githubusercontent.com/curtinp118/Scripthub/main/scripts/v2ex/v2ex.js
+    timeout: 60
+mitm:
+  hostnames:
+    includes:
+    - www.v2ex.com
