@@ -1,481 +1,719 @@
 # > AI.lsr（智能助理服务规则集）
-# - 分类：智能助理 / AI 服务平台 / 云端推理接口
-# - 来源：主流服务域名抓包 / 社区整理 / 手动校验
-# - 特征：涵盖 OpenAI、Claude、Gemini、Copilot、Perplexity、HuggingFace 等主流 AI 服务域名
+# - 分类：生成式人工智能平台（涵盖大模型推理服务与云端 API 基础设施）
+# - 来源：官方文档 / 本地流量行为分析 / 手动校验 / 持续自维护
+# - 特征：覆盖主流生成式人工智能平台与大模型服务域名，包括 OpenAI、Claude、Gemini、Copilot、Perplexity、HuggingFace 等生态体系
+# - 说明：本规则集收录国际主流生成式 AI 平台相关域名；中国大陆 AI 服务域名统一归入 China 规则集维护
 # - 用途：本规则集用于防御性安全研究，禁止用于任何非法用途
 # - 维护：https://github.com/Thoseyearsbrian/Aegis
-# - 更新时间：2025-12-09
+# - 更新时间：2026-05-09
+# - 校对时间：2026-05-09
 
-# > OpenAI Chat 系列
+# > OpenAI Platform Infrastructure（OpenAI 平台基础设施域名）
+# - 校对时间：2026-03-05
 
-DOMAIN-SUFFIX,openai.com # OpenAI 主站域名
-DOMAIN-SUFFIX,chat.openai.com # ChatGPT 网页端
+DOMAIN-SUFFIX,openai.com # OpenAI 官方主站
+DOMAIN-SUFFIX,chat.openai.com # ChatGPT Web 服务入口
 DOMAIN-SUFFIX,api.openai.com # OpenAI API 接口
-DOMAIN-SUFFIX,cdn.openai.com # 静态资源 CDN
-DOMAIN-SUFFIX,platform.openai.com # OpenAI 开发者平台
-DOMAIN-SUFFIX,chatgpt.com # ChatGPT 主域
-DOMAIN-SUFFIX,ios.chat.openai.com # iOS 客户端专用域名
-DOMAIN-SUFFIX,android.chat.openai.com # Android 客户端专用域名
-DOMAIN-SUFFIX,ws.chatgpt.com # ChatGPT WebSocket 通道
-DOMAIN-SUFFIX,ab.chatgpt.com  # ChatGPT A/B 实验流量
-DOMAIN-SUFFIX,oaiusercontent.com # OpenAI 输出内容（图片/文件等）
-DOMAIN-SUFFIX,oaistatic.com # OpenAI 静态资源域
+DOMAIN-SUFFIX,cdn.openai.com # OpenAI 静态资源 CDN
+DOMAIN-SUFFIX,platform.openai.com # OpenAI 开发者平台控制台
+DOMAIN-SUFFIX,chatgpt.com # ChatGPT 主域名
+DOMAIN-SUFFIX,ios.chat.openai.com # ChatGPT iOS 客户端服务
+DOMAIN-SUFFIX,android.chat.openai.com # ChatGPT Android 客户端服务
+DOMAIN-SUFFIX,ws.chatgpt.com # ChatGPT WebSocket 实时通信
+DOMAIN-SUFFIX,ab.chatgpt.com # ChatGPT A/B 测试路由
+DOMAIN-SUFFIX,oaiusercontent.com # OpenAI 用户内容存储
+DOMAIN-SUFFIX,oaistatic.com # OpenAI 静态资源服务
 DOMAIN-SUFFIX,persistent.oaistatic.com # OpenAI 持久化静态资源
-DOMAIN-SUFFIX,openaiapi-site.azureedge.net # Azure Edge CDN 分发
-DOMAIN-SUFFIX,ab.chatgpt.com # OpenAI AB 测试服务，可能用于实验性功能路由与测试
-IP-CIDR,59.188.250.54/32 # ws.chatgpt.com WebSocket 通信节点，ChatGPT 实时对话与事件推送服务（Cloudflare 边缘）
-IP-CIDR,31.13.95.18/32 # Meta（Facebook）CDN/GFE 节点，用于 ChatGPT iOS 客户端的资源加载与连接分发
-IP-CIDR,108.160.163.112/32 # OpenAI / ChatGPT Port Mapping 相关节点，用于 API/客户端连接的网络映射与流量中转
-IP-CIDR,31.13.95.18/32 # ChatGPT Port Mapping 使用的 Meta 高性能边缘节点，用于网络加速与 TLS 终端调度
-IP-CIDR,31.13.95.169/32 # OpenAI ChatGPT WebSocket 服务节点（ws.chatgpt.com），用于实时对话与流式响应
-IP-CIDR,108.160.166.61/32 # OpenAI ChatGPT WebSocket 服务节点（ws.chatgpt.com），用于实时对话与流式内容传输
-IP-CIDR,108.160.167.156/32 # ChatGPT iOS 客户端 Edge 节点（ios.chat.openai.com），用于移动端加速与区域访问入口
-IP-CIDR,128.242.240.189/32 # ChatGPT Web 主站 Edge 节点（chatgpt.com），用于网页端连接的全球负载均衡入口
-IP-CIDR,185.45.7.189/32 # chatgpt.com 相关出口节点（Cloudflare / OpenAI 服务）
-IP-CIDR,173.255.209.47/32 # chatgpt.com 相关出口节点（OpenAI 基础设施）
-IP-CIDR,104.244.46.63/32  # 归属 OpenAI，关联 realtime.chatgpt.com，用于实时对话更新与 WebSocket 通信
-IP-CIDR,69.171.247.32/32 # ab.chatgpt.com 所属 IP，第三方 ChatGPT 接入平台流量
-IP-CIDR,173.236.212.42/32 # chatgpt.com 所属 IP，OpenAI 主域名，直接通信流量
+DOMAIN-SUFFIX,openaiusercontent.com # OpenAI 用户资源托管
+DOMAIN-SUFFIX,docs.openai.com # OpenAI 开发者文档站点
+DOMAIN-SUFFIX,auth0.openai.com # OpenAI 身份认证服务域名
+DOMAIN-SUFFIX,openaipublic.blob.core.windows.net # OpenAI 公共资源托管域名
 
-# > Sora — OpenAI 视频生成 / AI 服务主域名
+# > OpenAI ChatGPT Actions Egress Network (ChatGPT Actions 官方出口网络（Azure）)
+# - 数据来源：https://openai.com/chatgpt-actions.json
+# - 校对时间：2026-03-05
 
-DOMAIN-SUFFIX,sora.com # Sora 官方域名，用于文本到视频模型访问、用户界面与 API 服务入口
+IP-CIDR,4.151.71.176/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,4.151.119.48/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,4.189.118.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,4.196.198.80/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,4.197.19.176/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,4.197.64.0/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,4.197.64.48/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,4.197.115.112/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,4.205.128.176/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.65.138.96/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.65.138.112/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.67.46.240/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.67.72.16/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.70.107.160/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.71.2.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.76.32.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.76.115.224/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.76.116.80/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.79.43.0/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,13.83.237.176/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.0.53.96/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.45.178.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.55.229.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.63.221.64/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.90.7.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.102.212.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.117.22.224/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.125.112.224/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.168.7.192/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.168.7.240/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.169.72.96/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.169.72.112/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.169.78.48/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.169.78.64/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.169.78.80/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.169.78.96/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.172.29.32/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.193.50.32/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.194.0.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.194.157.176/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.198.67.96/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.203.245.32/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.210.154.128/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.210.174.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.215.187.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.215.214.16/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.215.219.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.215.220.64/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.215.220.80/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.215.220.128/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.215.220.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.215.220.160/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.227.140.32/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.228.106.176/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.235.75.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.235.87.224/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,20.249.63.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,23.97.109.224/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,23.98.186.64/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,23.98.186.96/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,23.102.141.32/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,40.67.183.160/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,40.67.183.176/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,40.81.134.128/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,40.84.181.32/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,44.249.227.138/32 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.43.161.225/32 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.148.129.32/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.165.212.48/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.172.129.160/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.172.251.112/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.173.123.0/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.173.221.16/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.173.234.16/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.173.234.80/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.176.139.176/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.190.137.16/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.190.137.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.190.139.48/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.190.142.64/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.231.30.48/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.231.39.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.231.39.192/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.242.132.224/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.242.132.240/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.242.245.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.252.113.240/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.255.109.80/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.255.109.96/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.255.109.112/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.255.109.128/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.255.109.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.255.111.0/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.255.111.16/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,52.255.111.32/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,57.154.174.112/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,57.154.187.32/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,68.154.28.96/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,68.220.57.64/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,68.221.67.160/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,68.221.67.240/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,68.221.75.16/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,74.7.35.48/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,74.7.35.112/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,74.7.36.64/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,74.7.36.80/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,74.226.253.160/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,74.249.86.176/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,104.210.139.192/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,104.210.139.224/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,132.196.82.48/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,135.119.134.128/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,135.119.134.192/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,135.220.73.208/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,135.237.133.48/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,135.237.133.112/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,137.135.183.96/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,137.135.191.176/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,172.183.143.224/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,172.204.16.64/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,172.212.159.64/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,172.213.11.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,172.213.21.112/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,172.213.21.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,191.233.1.128/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,191.233.1.224/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,191.233.196.112/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,191.234.167.128/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,191.235.98.144/28 # ChatGPT Actions 官方出口网络（Azure）
+IP-CIDR,191.237.249.64/28 # ChatGPT Actions 官方出口网络（Azure）
 
-# > Grok（xAI / Elon Musk）AI 服务相关域名
+# > Sora（OpenAI 视频生成服务）
+# - 校对时间：2026-03-05
 
-DOMAIN-SUFFIX,x.ai # xAI 官方站点，Grok 所属公司
-DOMAIN-SUFFIX,grok.x.ai # Grok 主服务域名
-DOMAIN-SUFFIX,chat.grok.x.ai # Grok 对话主入口
+DOMAIN-SUFFIX,sora.com # OpenAI Sora 视频生成服务域名
+
+# > OpenAI Speech（语音合成与音频服务）
+# - 校对时间：2026-03-05
+
+DOMAIN-SUFFIX,tts.openai.com # OpenAI 文本转语音服务
+DOMAIN-SUFFIX,voice.openai.com # OpenAI 语音交互服务
+DOMAIN-SUFFIX,audio.openai.com # OpenAI 音频处理服务
+
+# > OpenAI Whisper（语音识别服务）
+# - 校对时间：2026-03-05
+
+DOMAIN-SUFFIX,whisper.openai.com # OpenAI Whisper 语音识别服务
+
+# > OpenAI Media Services（OpenAI 媒体与文件资源服务）
+# - 校对时间：2026-03-05
+
+DOMAIN-SUFFIX,images.openai.com # OpenAI 图像生成与图像资源服务
+DOMAIN-SUFFIX,files.openai.com # OpenAI 文件资源与附件下载服务
+
+# > Grok（xAI 平台生成式 AI 服务）
+# - 校对时间：2026-03-09
+
+DOMAIN-SUFFIX,x.ai # xAI 官方主域名
+DOMAIN-SUFFIX,grok.x.ai # Grok AI Web 服务入口
+DOMAIN-SUFFIX,api.x.ai # xAI 官方 API 服务入口
 DOMAIN-SUFFIX,grok.x.com # Grok 在 X 平台的入口链接
-DOMAIN-SUFFIX,xusercontent.com # Grok 聊天资源载入（xAI 与 X 共用）
-DOMAIN-SUFFIX,api.grok.x.ai # Grok API 接口（模型调用）
-DOMAIN-SUFFIX,cdn.x.ai # xAI 静态资源服务
-DOMAIN-SUFFIX,grok.com # Grok AI 官方域名（xAI 所属），用于实时聊天助手服务与趋势分析
-
-# > Meta AI 相关域名
-
-DOMAIN-SUFFIX,meta.ai # Meta AI 官方主页
-DOMAIN-SUFFIX,ai.meta.com # Meta AI 模型服务与演示子域
-DOMAIN-SUFFIX,llama.meta.com # LLaMA 模型文档与接口
-DOMAIN-SUFFIX,meta-llama.com # LLaMA 模型授权与分发域名
-DOMAIN-SUFFIX,llama.com # Meta LLaMA 品牌域名
-DOMAIN-SUFFIX,llama.dev # Meta LLaMA 开发者域名
-DOMAIN-SUFFIX,facebookai.com # FAIR 早期研究站点
-DOMAIN-SUFFIX,fbai.net # Meta AI 研究/托管相关域
-DOMAIN-SUFFIX,ai.facebook.com # Facebook AI Research 旧站
-DOMAIN-SUFFIX,research.fb.com # Meta 技术研究中心
-DOMAIN-SUFFIX,about.fb.com # Meta 技术博客（AI 公告与研究）
-DOMAIN-SUFFIX,developers.facebook.com # Meta 开发者中心，包括 AI 功能接口
-
-# > Claude 相关域名
-
-DOMAIN-SUFFIX,claude.com # Claude 主域名，用于品牌展示、跳转与相关服务入口
-DOMAIN-SUFFIX,claude.ai # Claude AI 官方访问域名，用于网页前端与用户交互界面
-DOMAIN-SUFFIX,api.anthropic.com # Anthropic Claude 模型调用与 API 接入地址
-DOMAIN-SUFFIX,anthropic.com # Anthropic 官方主页及附属服务域名
-DOMAIN-SUFFIX,api.claude.ai # Claude 新版 API 接口（官方逐步统一到该域名）
-DOMAIN-SUFFIX,api.claude.com # Claude API 的备用/过渡域名
-DOMAIN-SUFFIX,claudeusercontent.com # Claude 用户内容存储域名，用于附件、文件处理等
-DOMAIN-SUFFIX,assets.claude.ai # Claude 前端静态资源（JS/CSS/字体文件）加载域名
-DOMAIN-SUFFIX,cdn.claude.ai # Claude 静态资源 CDN 加速域名
-DOMAIN-SUFFIX,events.claude.ai # Claude Telemetry/日志上报与事件追踪域名
-DOMAIN-SUFFIX,console.anthropic.com # Anthropic 控制台（API 密钥管理、账单等）
-DOMAIN-SUFFIX,developer.anthropic.com # Anthropic 开发者文档与 SDK 信息
-DOMAIN-SUFFIX,docs.anthropic.com # 文档站点，模型说明、API 参考等
-DOMAIN-SUFFIX,status.anthropic.com # Anthropic 服务状态监控页
-DOMAIN-SUFFIX,claude.io # Claude 辅助域名，用于品牌保护或跳转（不用于 API）
-DOMAIN-SUFFIX,anthropicstatus.com # Anthropic 状态页备用域名
-DOMAIN-SUFFIX,claude.site # Claude 品牌相关域名，用于跳转、展示或备用服务入口
-
-# > Anthropic 相关域名（信任 / 文档 / 状态 / 控制台）
-
-DOMAIN-SUFFIX,trust.anthropic.com # Anthropic 信任与安全中心，用于查看隐私、合规与安全政策等信息
-DOMAIN-SUFFIX,legal.anthropic.com # Anthropic 法律条款站点，包含服务协议、隐私声明等内容
-DOMAIN-SUFFIX,privacy.anthropic.com # Anthropic 隐私政策页面，用于数据收集、处理与用户权利说明
-DOMAIN-SUFFIX,status.anthropic.com # Anthropic 官方系统状态监控页面，用于查看 API/控制台运行情况
-DOMAIN-SUFFIX,console.anthropic.com # Anthropic 控制台，用于管理 API Key、团队、账单等
-DOMAIN-SUFFIX,developer.anthropic.com # Anthropic 开发者中心，API 文档与 SDK 指南
-DOMAIN-SUFFIX,docs.anthropic.com # Anthropic 技术文档站点，模型说明、参数、使用指南等
-DOMAIN-SUFFIX,resources.anthropic.com # Anthropic 资源中心，用于合规材料、白皮书、企业资料下载
-DOMAIN-SUFFIX,assets.anthropic.com # Anthropic 静态资源域名（图标/脚本/样式）
-DOMAIN-SUFFIX,cdn.anthropic.com # Anthropic 内容分发网络（CDN），用于前端静态内容加载
-
-# > Gemini / Bard（Google AI）
-
-DOMAIN-SUFFIX,gemini.google.com # Google Gemini 主站入口，用于多模态对话与 AI 工具访问
-DOMAIN-SUFFIX,bard.google.com # Google Bard 对话入口（已并入 Gemini，但旧入口仍在使用）
-DOMAIN-SUFFIX,generativeai.google # Google Generative AI 官方主页，介绍模型能力与 API 产品
-DOMAIN-SUFFIX,generative-language.googleapis.com # Google 生成式语言 API，用于 Gemini 文本与对话模型调用
-DOMAIN-SUFFIX,ai.google.dev # Google AI 开发者平台，Gemini API 文档、示例与 SDK
-DOMAIN-SUFFIX,makersuite.google.com # Google MakerSuite 工具，用于 Gemini Prompt 工程、数据集与实验
-DOMAIN-SUFFIX,palm.googleapis.com # PaLM API（Gemini 前身），部分旧 SDK 仍使用此端点
-DOMAIN-SUFFIX,proto.googleapis.com # Google API Protobuf 服务端点（Gemini/PaLM 部分调用链依赖）
-DOMAIN-SUFFIX,staging-bard.google.com # Bard 相关测试环境域名（真实存在）
-DOMAIN-SUFFIX,ai.googleblog.com # Google AI 官方技术博客，发布模型更新与研究成果
-DOMAIN-SUFFIX,deepmind.google # DeepMind 官方域名，Google Research 与 Gemini 研发部门之一
-
-# > Copilot 系列（Microsoft）
-
-DOMAIN-SUFFIX,copilot.microsoft.com # Microsoft Copilot 主站入口（网页版 Copilot）
-DOMAIN-SUFFIX,copilot.azureedge.net # Copilot 静态资源 CDN（脚本、样式、模型相关资源加载）
-DOMAIN-SUFFIX,edge.microsoft.com # Edge Copilot 入口及功能资源加载
-DOMAIN-SUFFIX,bingcopilot.microsoft.com # Bing Copilot 托管域，用于搜索与问答整合
-DOMAIN-SUFFIX,bingapis.com # Bing / Copilot API 后端接口（LLM 查询、搜索与上下文请求）
-DOMAIN-SUFFIX,api.bing.microsoft.com # Bing AI / Copilot 新版统一 API 接口
-DOMAIN-SUFFIX,assets.msn.com # Copilot 卡片式结果、搜索增强、插件资源载入
-DOMAIN-SUFFIX,msftauth.net # Microsoft Authentication，用于 Copilot 登录与验证流程
-DOMAIN-SUFFIX,live.com # Microsoft Account 登录，用于 Copilot 身份验证
-DOMAIN-SUFFIX,graph.microsoft.com # Microsoft Graph API（M365 Copilot 读取上下文的重要接口）
-DOMAIN-SUFFIX,sharepoint.com # M365 Copilot 文档引用与内容检索
-DOMAIN-SUFFIX,onenote.com # Copilot 获取 OneNote 数据时的上下文载入
-DOMAIN-SUFFIX,onerev.microsoft.com # Microsoft OneRev 服务（新版 AI 关联后端）
-DOMAIN-SUFFIX,contoso.com # Microsoft Copilot 官方演示站使用的测试域（真实存在）
-
-# > Perplexity AI
-
-DOMAIN-SUFFIX,perplexity.ai # Perplexity AI 主站入口，用于搜索、对话与模型访问
-DOMAIN-SUFFIX,api.perplexity.ai # Perplexity API 后端接口，用于模型调用、推理与集成服务
-DOMAIN-SUFFIX,pplx.ai # Perplexity 官方短链与跳转域名（真实存在）
-DOMAIN-SUFFIX,perplexitylabs.ai # Perplexity Labs 研发相关域名，用于实验功能与技术页面
-DOMAIN-SUFFIX,perplexitychat.ai # Perplexity Chat 入口域名，用于对话体验（真实解析存在）
-DOMAIN-SUFFIX,pplx-res.cloudinary.com # Perplexity 静态资源托管（图像、模型截图等）
-
-# > HuggingFace
-
-DOMAIN-SUFFIX,huggingface.co # Hugging Face 主站域名，用于模型托管、Spaces、Datasets、文档与账号管理
-DOMAIN-SUFFIX,inference-api.com # Hugging Face Inference API 域名，用于模型推理、实时推断与托管接口调用
-DOMAIN-SUFFIX,cdn-lfs.huggingface.co # Hugging Face 大文件分发域名（LFS），用于模型权重、数据集与关联资源的高速下载
-DOMAIN-SUFFIX,huggingfaceusercontent.com # Hugging Face 用户内容域名，用于托管Spaces、Demo资源、模型输出与用户上传内容
-DOMAIN-SUFFIX,huggingface.tech # Hugging Face 技术域/内部服务域，用于后台部署、云端组件与隐式服务接口
-DOMAIN-SUFFIX,hf.co # Hugging Face 官方短链域名，用于模型/Space 快速跳转
-DOMAIN-SUFFIX,api.endpoints.huggingface.cloud # Hugging Face Endpoints 托管推理 API（企业级模型部署接口）
-DOMAIN-SUFFIX,assets.huggingface.co # Hugging Face 静态资源域名（图标、脚本、前端资源加载）
-DOMAIN-SUFFIX,models.huggingface.co # 模型卡、README、元信息文档等内容托管节点
-DOMAIN-SUFFIX,datasets.huggingface.co # 数据集文档/预览服务域名
-DOMAIN-SUFFIX,spaces.huggingface.co # Spaces 应用运行、前端加载与 UI 组件域名
-
-# > Poe（Quora）
-
-DOMAIN-SUFFIX,poe.com # Poe 主站，用于访问 AI 聊天、多模型切换、会话管理等核心功能
-DOMAIN-SUFFIX,api.poe.com # Poe API 后端接口，用于模型调用、消息推理与账号交互
-DOMAIN-SUFFIX,poecdn.net # Poe 静态资源 CDN，用于前端脚本、样式、模型相关素材加载
-DOMAIN-SUFFIX,poeusercontent.com # Poe 用户内容域名，用于缓存用户生成内容、图像、会话数据与资源文件
-DOMAIN-SUFFIX,quora.com # Quora 主站，Poe 登录、账号整合与 OAuth 认证依赖
-DOMAIN-SUFFIX,quoracdn.net # Quora 静态资源 CDN，用于账号系统、登录页面及通用脚本加载
-
-# > Mistral AI
-
-DOMAIN-SUFFIX,mistral.ai # Mistral AI 官方主站，用于产品介绍、模型发布与公司信息
-DOMAIN-SUFFIX,api.mistral.ai # Mistral 官方 API 接口，用于模型推理、嵌入、生成任务等调用
-DOMAIN-SUFFIX,console.mistral.ai # Mistral 控制台，用于管理 API Keys、账单与使用情况
-DOMAIN-SUFFIX,docs.mistral.ai # Mistral 开发者文档站点，用于 API 文档、SDK 指南与模型说明
-DOMAIN-SUFFIX,cdn.mistral.ai # Mistral 静态资源 CDN，用于加载前端资源与控制台静态内容
-DOMAIN-SUFFIX,mistral-embed.run # Mistral Embedding 推理端点，用于提供向量化推理服务
-DOMAIN-SUFFIX,mistral-medium.run # Mistral Medium 模型推理端点，用于特定模型托管与生产部署
-
-# > Haruka AI
-
-DOMAIN-SUFFIX,haruka.ai # Haruka AI 主站域名，用于访问聊天界面、用户设置与模型服务
-DOMAIN-SUFFIX,ai.haruka.cloud # Haruka AI 主站域名，用于在线对话平台与 Web 端服务入口
-DOMAIN-SUFFIX,api.ai.haruka.cloud # Haruka AI 平台 API 接口域名，用于对话推理、消息处理与应用集成
-DOMAIN-SUFFIX,cdn.ai.haruka.cloud # Haruka AI 静态资源 CDN 域名，用于前端脚本、样式与界面组件加载
-DOMAIN-SUFFIX,assets.ai.haruka.cloud # Haruka AI 多媒体与附属资源域名，用于图像、音频与团队协作模块内容加载
-DOMAIN-SUFFIX,haruka.cloud # Haruka 平台基础域名，用于账户系统、认证跳转与服务路由
-
-# > Cohere AI
-
-DOMAIN-SUFFIX,cohere.ai # Cohere 主站域名，用于模型介绍、平台入口与产品信息
-DOMAIN-SUFFIX,api.cohere.ai # Cohere 官方 API 接口域名，用于文本生成、嵌入、分类等模型推理调用
-DOMAIN-SUFFIX,cohere.com # Cohere 商业站点与企业服务入口，用于账号管理与文档跳转
-DOMAIN-SUFFIX,os.cohere.ai # Cohere Command-R / Embed / Rerank 等模型资源与官方开源页面
-DOMAIN-SUFFIX,coral.cohere.com # Cohere Coral 平台相关域名，用于企业级 AI 管理、模型部署与协作功能
-DOMAIN-SUFFIX,studio.cohere.com # Cohere Studio 在线工作台，用于实验、Prompt 编辑与模型测试
-DOMAIN-SUFFIX,docs.cohere.com # Cohere 文档中心，用于 API 文档、模型说明与 SDK 示例
-
-# > Voyage AI
-
-DOMAIN-SUFFIX,voyageai.com # Voyage AI 主站域名，用于产品介绍、模型展示与文档入口
-DOMAIN-SUFFIX,api.voyageai.com # Voyage AI 官方 API 接口，用于嵌入向量、重排序（Rerank）等模型推理调用
-DOMAIN-SUFFIX,cdn.voyageai.com # Voyage AI 静态资源域名，用于前端脚本、样式与控制台相关资源加载
-DOMAIN-SUFFIX,docs.voyageai.com # Voyage AI 文档站点，用于 API 文档、模型能力说明、代码示例
-DOMAIN-SUFFIX,console.voyageai.com # Voyage AI 控制台，用于 API Key 管理、账单查看与使用统计
-
-# > AI21 Labs
-
-DOMAIN-SUFFIX,ai21.com # AI21 Labs 主站域名，用于模型介绍、平台信息与企业服务
-DOMAIN-SUFFIX,api.ai21.com # AI21 官方 API 接口域名，用于文本生成、摘要、改写等语言模型推理
-DOMAIN-SUFFIX,studio.ai21.com # AI21 Studio 在线工作台，用于模型测试、Prompt 调试与交互式开发
-DOMAIN-SUFFIX,docs.ai21.com # AI21 文档站点，用于 API 文档、模型说明与代码示例
-DOMAIN-SUFFIX,platform.ai21.com # AI21 开发者平台入口，用于管理 API Key、账单与使用情况
-DOMAIN-SUFFIX,cdn.ai21.com # AI21 静态资源 CDN，用于加载控制台与前端界面的脚本、样式与图标
-
-# > Midjourney（AI 图像生成）
-
-DOMAIN-SUFFIX,midjourney.com # Midjourney 主站域名，用于账号管理、作品展示、FAQ 与产品说明
-DOMAIN-SUFFIX,www.midjourney.com # Midjourney 站点主访问域（与主站区分的前端入口）
-DOMAIN-SUFFIX,cdn.midjourney.com # Midjourney 静态资源 CDN，用于加载前端脚本、样式与图像处理界面
-DOMAIN-SUFFIX,cdn.discordapp.com # Midjourney 图像生成结果依赖的 CDN，用于在 Discord 中加载生成的图像
-DOMAIN-SUFFIX,discordapp.com # Midjourney 核心运行平台（模型指令、图像生成均在 Discord Bot 上执行）
-DOMAIN-SUFFIX,discord.com # Midjourney Bot 的主交互平台，用于消息收发与图像生成任务处理
-DOMAIN-SUFFIX,midjourney.ghost.io # Midjourney 官方博客使用的 Ghost 托管域名，用于发布新闻、更新日志与开发者文章等
-
-# > Runway（Gen-2 / Gen-3 视频生成平台）
-
-DOMAIN-SUFFIX,runwayml.com # Runway 主站域名，用于模型展示、作品集、功能介绍与登录入口
-DOMAIN-SUFFIX,app.runwayml.com # Runway Web Studio，用于 Gen-2 / Gen-3 视频生成、编辑、项目管理
-DOMAIN-SUFFIX,api.runwayml.com # Runway 官方 API，用于视频生成、图像生成、模型推理与后台任务调度
-DOMAIN-SUFFIX,cdn.runwayml.com # Runway 静态资源 CDN，用于加载脚本、样式、界面组件与前端资源
-DOMAIN-SUFFIX,assets.runwayml.com # Runway 静态素材域名，用于 UI 图标、字体、模型预设与工程资源加载
-DOMAIN-SUFFIX,media.runwayml.com # Runway 媒体资源域名，用于模型生成的图像、视频、音频文件及用户上传内容存储
-DOMAIN-SUFFIX,files.runwayml.com # Runway 文件服务端点，用于项目文件上传、下载、视频导出与中间内容处理
-DOMAIN-SUFFIX,genmo.runwayml.com # Runway 生成式模型服务接口，用于 Gen-2 / Gen-3 的推理管线与后台渲染
-DOMAIN-SUFFIX,render.runwayml.com # Runway 渲染服务域名，用于视频渲染队列、生成任务与输出合成
-
-# > Stability AI（Stable Diffusion 官方）
-
-DOMAIN-SUFFIX,stability.ai # Stability AI 官方主页域名，用于访问公司信息、模型发布、新闻公告与产品入口
-DOMAIN-SUFFIX,stability.ai # Stability AI 主站域名，用于模型发布、产品信息与公司介绍
-DOMAIN-SUFFIX,api.stability.ai # Stability AI 官方 API 接口域名，用于图像生成、视频生成与模型推理
-DOMAIN-SUFFIX,platform.stability.ai # Stability 控制台，用于 API Key 管理、账单与使用数据查看
-DOMAIN-SUFFIX,stability.dev # Stability 开发者子域，用于 SDK、开发工具与技术文档入口
-DOMAIN-SUFFIX,cdn.stability.ai # Stability 静态资源 CDN，用于前端脚本、样式与模型素材加载
-DOMAIN-SUFFIX,stablediffusionapi.com # Stable Diffusion 关联服务域名，用于扩展模型托管与推理服务
-DOMAIN-SUFFIX,clipdrop.co # ClipDrop（Stability 收购产品），用于图像生成、清洁、增强等工具
-DOMAIN-SUFFIX,api.clipdrop.co # ClipDrop 官方 API 接口，用于背景移除、修复与图像增强任务
-
-# > Pika（AI 视频生成）
-
-DOMAIN-SUFFIX,pika.art # Pika 主站域名，用于产品访问、作品展示与账号管理
-DOMAIN-SUFFIX,www.pika.art # Pika Web 前端入口，用于视频生成、项目管理与编辑界面
-DOMAIN-SUFFIX,api.pika.art # Pika 官方 API 接口，用于视频生成、图像生成与多媒体模型推理
-DOMAIN-SUFFIX,cdn.pika.art # Pika 静态资源 CDN，用于加载前端脚本、界面素材与模型资源
-DOMAIN-SUFFIX,assets.pika.art # Pika 资源域名，用于存储示例视频、素材文件与应用图标
-DOMAIN-SUFFIX,pika-realtime-prod.onrender.com # Pika 实时推理与任务调度服务域名（官方 Render 托管后端）
-DOMAIN-SUFFIX,storage.googleapis.com # Pika 生成视频、临时文件与项目资源的云存储托管（Google Cloud）
-
-# > Leonardo AI（AI 图像生成）
-
-DOMAIN-SUFFIX,leonardo.ai # Leonardo AI 主站，用于产品介绍、登录入口与作品展示
-DOMAIN-SUFFIX,www.leonardo.ai # Leonardo Web App 前端入口，用于图像生成、项目管理与模型编辑
-DOMAIN-SUFFIX,api.leonardo.ai # Leonardo 官方 API 接口，用于图像生成、纹理生成与模型推理服务
-DOMAIN-SUFFIX,cloud.leonardo.ai # Leonardo 云端平台资源域，用于任务调度、模型加载与项目处理
-DOMAIN-SUFFIX,cdn.leonardo.ai # Leonardo 静态资源 CDN，用于脚本、样式与前端界面素材加载
-DOMAIN-SUFFIX,static.leonardo.ai # Leonardo 静态资源扩展域名，用于界面图标、素材文件与模型文件托管
-DOMAIN-SUFFIX,files.leonardo.ai # Leonardo 文件存储域，用于图像生成结果、上传文件与项目资源托管
-DOMAIN-SUFFIX,storage.googleapis.com # Leonardo 生成图像、多媒体资源与项目数据使用 Google Cloud 存储
-
-# > Krea AI（AI 图像 / 视频生成）
-
-DOMAIN-SUFFIX,krea.ai # Krea AI 主站，用于模型介绍、作品展示、账号管理与平台入口
-DOMAIN-SUFFIX,www.krea.ai # Krea Web App 前端入口，用于图像生成、视频生成、项目管理与实时编辑
-DOMAIN-SUFFIX,api.krea.ai # Krea 官方 API 接口，用于图像生成、视频生成与模型推理任务
-DOMAIN-SUFFIX,cdn.krea.ai # Krea 静态资源 CDN，用于加载前端脚本、样式与界面组件
-DOMAIN-SUFFIX,assets.krea.ai # Krea 资源域名，用于图片素材、模型文件与界面图标加载
-DOMAIN-SUFFIX,files.krea.ai # Krea 文件存储域，用于生成内容、上传文件与项目缓存
-DOMAIN-SUFFIX,storage.googleapis.com # Krea 使用 Google Cloud 存储生成视频、图像与大文件资源
-
-# > Luma AI（AI 视频生成 / 3D 建模）
-
-DOMAIN-SUFFIX,luma.com # Luma 官方主域，用于用户活动注册、邮件通知与事件页面加载
-DOMAIN-SUFFIX,lumalabs.ai # Luma AI 主站域名，用于产品介绍、模型展示与平台入口
-DOMAIN-SUFFIX,app.lumalabs.ai # Luma Web 应用前端，用于视频生成、3D 模型处理与项目管理
-DOMAIN-SUFFIX,api.lumalabs.ai # Luma 官方 API 接口，用于 Dream Machine 视频生成与 3D 模型推理
-DOMAIN-SUFFIX,cdn.lumalabs.ai # Luma 静态资源 CDN，用于前端脚本、样式、图标等界面资源加载
-DOMAIN-SUFFIX,assets.lumalabs.ai # Luma 静态资源与素材域名，用于模型素材、演示文件与界面资源托管
-DOMAIN-SUFFIX,files.lumalabs.ai # Luma 文件存储域，用于生成视频、3D 项目文件与上传资源管理
-DOMAIN-SUFFIX,storage.googleapis.com # Luma 使用 Google Cloud 存储视频输出、模型文件与大资源
-DOMAIN-SUFFIX,static.cdn-luma.com # Luma 平台静态资源 CDN，用于活动页面脚本、样式与图像等前端内容加载
-DOMAIN-SUFFIX,storage.cdn-luma.com # Luma 静态资源子域，用于存储活动相关媒体资源与生成内容，如图像、视频与模型文件
-DOMAIN-SUFFIX,cdn.lu.ma # Luma 官方 CDN 域名，用于加载活动页面所需的 JS 脚本与 CSS 样式资源
-DOMAIN-SUFFIX,images.lumacdn.com # Luma 图像资源节点，用于头像、横幅、活动图片等媒体文件加载
-
-# > Together AI（开源模型推理 / API 平台）
-
-DOMAIN-SUFFIX,together.ai # Together AI 主站入口，用于产品介绍、模型列表与平台说明
-DOMAIN-SUFFIX,api.together.ai # Together AI 官方 API 接口，用于推理生成、Embedding、LLM 接口调用
-DOMAIN-SUFFIX,app.together.ai # Together AI 控制台（Dashboard），用于管理 API Key、账单、调用监控与模型配置
-DOMAIN-SUFFIX,cdn.together.ai # Together 静态资源 CDN，用于加载前端脚本、样式与控制台界面组件
-DOMAIN-SUFFIX,assets.together.ai # Together 静态素材域名，用于图标、字体、界面资源等前端文件加载
-DOMAIN-SUFFIX,togethercomputer.com # Together AI 早期项目与内部基础域名，仍用于部分服务跳转与文档
-DOMAIN-SUFFIX,togetherlabs.com # Together 研发与实验性服务域名（模型测试、内测版本等）
-DOMAIN-SUFFIX,prod-api.together.ai # Together AI 生产环境 API 节点（部分 SDK 会调用此端点）
-DOMAIN-SUFFIX,static.together.ai # 前端静态资源与控制台辅助脚本加载
-
-# > Groq（LPU 推理加速 / R1 推理服务）
-
-DOMAIN-SUFFIX,groq.com # Groq 官方主站，用于产品介绍、LPU 架构说明与企业方案
-DOMAIN-SUFFIX,groqcloud.ai # Groq Cloud 主站，用于 R1/Llama 等模型的在线推理平台入口
-DOMAIN-SUFFIX,api.groq.com # Groq 官方 API 接口，用于模型推理、加速执行与集成调用
-DOMAIN-SUFFIX,console.groq.com # Groq 控制台，用于管理 API Key、账单、使用情况与部署设置
-DOMAIN-SUFFIX,docs.groq.com # Groq 文档站点，提供 API 文档、SDK 说明与模型调用示例
-DOMAIN-SUFFIX,cdn.groq.com # Groq 静态资源 CDN，用于加载前端脚本、样式、图标与控制台资源
-DOMAIN-SUFFIX,assets.groq.com # Groq 静态资源域名，用于图标、字体、前端 UI 素材文件加载
-DOMAIN-SUFFIX,status.groq.com # Groq 服务状态页，用于查看 API / Cloud 服务是否正常运行
-DOMAIN-SUFFIX,phte.groq.io # Groq 提供的远程推理服务节点，用于运行大模型推理任务与高速响应接口
-
-# > Modal（AI 无服务器推理 / 云端计算平台）
-
-DOMAIN-SUFFIX,modal.com # Modal 官方主站，用于产品介绍、计算服务说明与企业方案
-DOMAIN-SUFFIX,modal.run # Modal 程序运行域名，用于执行任务、云函数调用与部署的实际运行环境
-DOMAIN-SUFFIX,api.modal.com # Modal 官方 API 接口，用于创建任务、函数调用、执行日志与资源管理
-DOMAIN-SUFFIX,modal-labs.com # Modal Labs 技术域名，用于模型实验、内部测试与孵化项目
-DOMAIN-SUFFIX,assets.modal.com # Modal 静态资源域名，用于前端图标、字体、样式与控制台界面资源加载
-DOMAIN-SUFFIX,cdn.modal.com # Modal CDN 加速域名，用于前端脚本与控制台静态资源分发
-DOMAIN-SUFFIX,console.modal.com # Modal 控制台，用于管理 API Key、账单、任务监控等
-DOMAIN-SUFFIX,modal-cdn.com # Modal AI 相关服务的资源分发域名，用于加载模型界面组件、脚本与样式等静态资源
-
-# > Replicate（模型托管 / 云端推理服务）
-
-DOMAIN-SUFFIX,replicate.com # Replicate 主站，用于模型浏览、部署、演示与账号管理
-DOMAIN-SUFFIX,api.replicate.com # Replicate API 主入口，用于模型推理、异步任务、Webhook 与运行管理
-DOMAIN-SUFFIX,replicate.delivery # Replicate 输出内容分发域名，用于生成图片、视频与模型结果文件的下载
-DOMAIN-SUFFIX,replicatecdn.com # Replicate 静态资源 CDN，用于前端脚本、样式与界面组件加载
-DOMAIN-SUFFIX,cdn.replicate.com # Replicate 静态资源 CDN 备用域名，用于内容加速与控制台资源加载
-DOMAIN-SUFFIX,objects.replicate.com # Replicate 对象存储域名，用于模型输出文件、训练数据与临时内容存储
-DOMAIN-SUFFIX,r8y.io # Replicate 推理任务加速域名，用于部分模型运行与内部路由
-DOMAIN-SUFFIX,replicate-fileupload.com # Replicate 文件上传端点，用于上传模型输入文件、数据集与预处理资源
-DOMAIN-SUFFIX,static.replicateassets.com # Replicate 平台资源分发域名，用于加载模型演示、图片预览与前端静态文件
-DOMAIN-SUFFIX,replicatestatus.com # Replicate 服务状态页面主域名，用于展示系统可用性、服务运行状态与历史事件
-DOMAIN-SUFFIX,fonts.replicateassets.com # Replicate 字体资源分发域名，用于加载自定义字体、提升界面渲染一致性
-
-# > RunPod（GPU 推理算力 / 模型部署平台）
-
-DOMAIN-SUFFIX,runpod.io # RunPod 主站入口，用于产品介绍、登录、 Pod 管理与账单
-DOMAIN-SUFFIX,api.runpod.ai # RunPod 官方 API 接口，用于任务调用、模型推理、Serverless Pods 与自定义端点
-DOMAIN-SUFFIX,runpod.ai # RunPod 推理平台主域，用于 API 文档、模型管理与开发者入口
-DOMAIN-SUFFIX,imgs.runpod.io # RunPod 静态资源域名，用于加载控制台图片、图标与媒体资源
-DOMAIN-SUFFIX,cdn.runpod.io # RunPod 静态资源 CDN 域名，用于前端脚本、样式、界面资源的高性能分发
-DOMAIN-SUFFIX,runpodusercontent.com # RunPod 用户内容存储域名，用于模型输出、日志文件、数据缓存与对象存储资源
-DOMAIN-SUFFIX,files.runpod.io # RunPod 文件上传/下载域名，用于模型文件、日志或用户数据的传输
-
-# > Suno（AI 音乐生成平台）
-
-DOMAIN-SUFFIX,suno.com # Suno AI 官方主站域名，用于用户交互、账号系统与音乐生成请求处理
-DOMAIN-SUFFIX,suno.ai # Suno 主站，用于产品介绍、示例音乐展示与平台入口
-DOMAIN-SUFFIX,app.suno.ai # Suno Web 应用（Suno Studio），用于音乐生成、编辑与项目管理
-DOMAIN-SUFFIX,api.suno.ai # Suno API 接口，用于音乐生成、任务处理、音频输出与模型调用
-DOMAIN-SUFFIX,cdn.suno.ai # Suno 静态资源 CDN，用于加载前端脚本、样式、图标与界面资产
-DOMAIN-SUFFIX,assets.suno.ai # Suno 静态素材域名，用于图标、字体、前端组件等 UI 资源加载
-DOMAIN-SUFFIX,media.suno.ai # Suno 媒体资源域名，用于存放生成的音乐文件、预览音频与用户上传内容
-DOMAIN-SUFFIX,files.suno.ai # Suno 文件接口，用于下载模型生成的音频文件或工程文件
-DOMAIN-SUFFIX,content.suno.run # Suno AI 内容资源加载子域，用于音乐生成结果、封面图与嵌入式资源加载
-
-# > ElevenLabs（AI 语音生成 / 文本转语音平台）
-
-DOMAIN-SUFFIX,elevenlabs.io # ElevenLabs 主站入口，用于产品介绍、定价、功能展示与平台登录
-DOMAIN-SUFFIX,app.elevenlabs.io # ElevenLabs Web 应用界面，用于语音生成、语音克隆、项目管理等操作
-DOMAIN-SUFFIX,api.elevenlabs.io # ElevenLabs 官方 API 接口，用于文本转语音（TTS）、语音克隆、音频生成等模型调用
-DOMAIN-SUFFIX,cdn.elevenlabs.io # ElevenLabs 静态资源 CDN，用于加载前端脚本、样式、字体与界面组件
-DOMAIN-SUFFIX,assets.elevenlabs.io # ElevenLabs 静态资源与媒体文件域名，用于音频样本、预览文件与 UI 素材加载
-DOMAIN-SUFFIX,voices.elevenlabs.io # ElevenLabs 语音模型内容域名，用于存放语音示例、语音克隆资源与声音库文件
-DOMAIN-SUFFIX,media.elevenlabs.io # ElevenLabs 媒体资源托管域名，用于存储生成的音频文件与用户上传内容
-
-# > HeyGen（AI 视频生成 / 数字人 Avatar 平台）
-
-DOMAIN-SUFFIX,heygen.com # HeyGen 主站，用于产品介绍、示例视频展示、注册与控制台入口
-DOMAIN-SUFFIX,app.heygen.com # HeyGen Web Studio，用于视频生成、Avatar 创建、编辑与项目管理
-DOMAIN-SUFFIX,api.heygen.com # HeyGen 官方 API 接口，用于视频合成、数字人生成、音视频处理与任务队列操作
-DOMAIN-SUFFIX,cdn.heygen.com # HeyGen 静态资源 CDN，用于前端脚本、样式、字体与 UI 组件加载
-DOMAIN-SUFFIX,assets.heygen.com # HeyGen 静态素材源，用于图标、Avatar 资源、预设模板与前端资源文件
-DOMAIN-SUFFIX,media.heygen.com # HeyGen 媒体域名，用于存储输出视频、用户上传文件与中间渲染结果
-DOMAIN-SUFFIX,files.heygen.com # HeyGen 文件服务端点，用于编辑任务文件、视频下载与上传处理
-DOMAIN-SUFFIX,render.heygen.com # HeyGen 渲染任务域名，用于视频渲染、数字人生成与后台处理调度
-DOMAIN-SUFFIX,static.heygen.ai # Heygen AI 平台静态资源域名，用于加载前端界面、样式与脚本资源，常用于生成式 AI 视频工具界面加载
-
-# > PlayHT（AI 语音生成 / TTS / 语音克隆平台）
-
-DOMAIN-SUFFIX,play.ht # PlayHT 主站与入口，用于产品介绍、示例音频展示与账号登录
-DOMAIN-SUFFIX,play.ai # Play.ai 平台主域名，用于 AI 语音对话、模型演示与音频生成等相关功能访问
-DOMAIN-SUFFIX,app.play.ht # PlayHT Web Studio，用于文本转语音、语音克隆、音频编辑与项目管理
-DOMAIN-SUFFIX,api.play.ht # PlayHT 官方 API 接口，用于文本转语音（TTS）、语音克隆、音频生成与批处理任务
-DOMAIN-SUFFIX,cdn.play.ht # PlayHT 静态资源 CDN，用于前端脚本、样式、字体与控制台界面资源加载
-DOMAIN-SUFFIX,assets.play.ht # PlayHT 静态素材资源域名，用于 UI 组件、图标、模板文件与前端素材加载
-DOMAIN-SUFFIX,media.play.ht # PlayHT 媒体资源域名，用于存储生成的音频文件、语音示例与用户上传内容
-DOMAIN-SUFFIX,files.play.ht # PlayHT 文件服务端点，用于音频文件下载、上传与任务输出处理
-
-# > LOVO.ai / Revoice（AI 语音生成 / 语音克隆平台）
-
-DOMAIN-SUFFIX,lovo.ai # LOVO.ai 主站，用于产品介绍、演示、定价与登录入口
-DOMAIN-SUFFIX,app.lovo.ai # LOVO Web Studio，用于文本转语音（TTS）、语音编辑、克隆管理与音频项目操作
-DOMAIN-SUFFIX,api.lovo.ai # LOVO 官方 API 接口，用于 TTS、语音克隆、批处理任务与生成音频的调用
-DOMAIN-SUFFIX,cdn.lovo.ai # LOVO 静态资源 CDN，用于前端脚本、样式、字体与 Studio 界面资源加载
-DOMAIN-SUFFIX,assets.lovo.ai # LOVO 静态素材域名，用于 UI 图标、模板、字体与组件资源加载
-DOMAIN-SUFFIX,media.lovo.ai # LOVO 媒体域名，用于存储输出音频、语音样本与用户上传内容
-DOMAIN-SUFFIX,files.lovo.ai # LOVO 文件服务端点，用于音频文件上传、下载与任务输出管理
-
-# Revoice 相关域名
-
-DOMAIN-SUFFIX,revoicer.com # Revoicer 主站域名，用于其 AI Text‑To‑Speech 服务，包括文本转语音接口、用户界面与语音合成请求处理
-DOMAIN-SUFFIX,revoice.ai # Revoice 主站，用于语音克隆产品介绍、示例与账号入口
-DOMAIN-SUFFIX,app.revoice.ai # Revoice Web 应用，用于录音上传、训练声音模型与克隆语音生成
-DOMAIN-SUFFIX,api.revoice.ai # Revoice API，用于语音克隆模型推理、音频生成与服务集成
-DOMAIN-SUFFIX,cdn.revoice.ai # Revoice 静态资源 CDN，用于加载前端脚本、界面组件与样式资源
-DOMAIN-SUFFIX,assets.revoice.ai # Revoice 静态资源域名，用于图标、页面素材与音频工具相关资源
-DOMAIN-SUFFIX,media.revoice.ai # Revoice 媒体内容存储，用于生成音频文件、训练样本与上传内容
-DOMAIN-SUFFIX,files.revoice.ai # Revoice 文件服务，用于克隆语音素材上传、输出音频下载
-
-# > Synthesia（AI 数字人视频生成 / 企业级虚拟主播平台）
-
-DOMAIN-SUFFIX,synthesia.io # Synthesia 主站入口，用于产品介绍、示例展示、登录与企业解决方案
-DOMAIN-SUFFIX,app.synthesia.io # Synthesia Web Studio，用于视频生成、模板编辑、虚拟人创建与项目管理
-DOMAIN-SUFFIX,api.synthesia.io # Synthesia 官方 API，用于视频生成、脚本处理、数字人渲染与企业级集成
-DOMAIN-SUFFIX,cdn.synthesia.io # Synthesia 静态资源 CDN，用于加载脚本、样式、字体与前端 UI 组件
-DOMAIN-SUFFIX,assets.synthesia.io # Synthesia 静态素材域名，用于图标、模板、数字人素材与前端界面资源
-DOMAIN-SUFFIX,media.synthesia.io # Synthesia 媒体资源域名，用于存储生成的视频、上传的素材文件与音频内容
-DOMAIN-SUFFIX,files.synthesia.io # Synthesia 文件服务端点，用于项目文件上传、下载与生成内容传输
-DOMAIN-SUFFIX,render.synthesia.io # Synthesia 渲染服务域名，用于视频合成、数字人渲染与后台任务调度
-
-# > Fable Studio / Showrunner（AI 剧集生成 / AI 角色驱动内容）
-
-DOMAIN-SUFFIX,fable-studio.com # Fable Studio 官网，用于展示公司／产品信息、项目信息、官网页面访问等静态内容与前端资源加载
-DOMAIN-SUFFIX,fable.app # Fable Studio 主站，用于产品介绍、演示、平台入口与登录
-DOMAIN-SUFFIX,app.fable.app # Fable Web Studio，用于角色创建、场景生成、叙事编辑与项目管理
-DOMAIN-SUFFIX,api.fable.app # Fable 官方 API，用于 Showrunner 的剧情生成、视频生产、角色控制与后台任务处理
-DOMAIN-SUFFIX,cdn.fable.app # Fable 静态资源 CDN，用于加载脚本、样式、UI 组件与前端资源
-DOMAIN-SUFFIX,assets.fable.app # Fable 静态素材域名，用于角色素材、图标、界面资源与前端文件加载
-DOMAIN-SUFFIX,media.fable.app # Fable 媒体资源域名，用于存储生成的视频、角色素材、音频与用户上传内容
-DOMAIN-SUFFIX,files.fable.app # Fable 文件服务端点，用于上传与下载项目文件、场景素材与导出内容
-DOMAIN-SUFFIX,showrunner.ai # Showrunner 主站域名，用于 AI 剧集演示、角色展示与 Showrunner 产品入口
-DOMAIN-SUFFIX,app.showrunner.ai # Showrunner Web 应用，用于 AI 剧集生成、对白编辑、角色动作生成与视频渲染管理
-DOMAIN-SUFFIX,api.showrunner.ai # Showrunner API，用于剧情自动生成、视觉渲染、角色行为控制与视频输出
-
-# > Dola AI（第三方 AI 对话平台 / 多模型聚合）- 好像仅限新加坡地区可正常访问，其他地区可能存在访问限制
-
-DOMAIN-SUFFIX,dola.com # Dola AI 对话平台主域名，用于在线聊天助手、模型聚合与对话界面访问
-DOMAIN-SUFFIX,app.dola.com # Dola AI Web 应用端，用于会话管理、模型切换与界面交互
-DOMAIN-SUFFIX,api.dola.com # Dola AI 后端推理接口，用于模型调用、推理请求与应用集成
-DOMAIN-SUFFIX,cdn.dola.com # Dola 静态资源 CDN，用于前端脚本、样式与素材加载
-
-# > Ciciai（丝西 AI / 生数科技）相关域名 - 好像仅限新加坡地区可正常访问，其他地区可能存在访问限制
-
-DOMAIN-SUFFIX,cici.com # 商业门户网站主域名，用于企业主页、展示内容与业务入口
-DOMAIN-SUFFIX,ciciai.com # CiCi AI 官方主域名，用于大模型访问、前端界面与 API 服务
-DOMAIN-SUFFIX,ciciaicdn.com # Ciciai 静态资源 CDN 主域名，用于前端脚本、图片与样式加载
-DOMAIN-SUFFIX,sf-sf-flow-web-cdn-nontt.ciciaicdn.com # Ciciai Web 前端 CDN 节点（非电信线路），用于页面加载与静态资源分发
-DOMAIN-SUFFIX,sf-flow-web-cdn.ciciaicdn.com # Ciciai Web 前端 CDN 节点，用于页面 UI、脚本与资源加速
-DOMAIN-SUFFIX,ciciai.com # Ciciai 主站域名，用于 AI 产品访问、界面渲染与业务入口
-DOMAIN-SUFFIX,opt-i18n.ciciai.com # Ciciai 国际化内容服务端点，用于多语言界面翻译与本地化资源加载
-DOMAIN-SUFFIX,vmweb-sg.ciciai.com # Ciciai 新加坡区域 Web 服务节点，用于推理网络、会话管理与国际线路访问
-DOMAIN-SUFFIX,mcs-sg.ciciai.com # Ciciai 新加坡区域多媒体/后端接口节点，用于文件处理、资源访问与模型处理任务
-
-# > aibusiness.com（AI Business — AI 行业新闻 / 报告 / 内容分发站点）
-
-DOMAIN-SUFFIX,aibusiness.com # AI Business 主站域名，用于文章、报告、新闻与行业内容发布与访问
-
-# > Fireworks AI（大模型推理加速 / LLM 托管平台）
-
-DOMAIN-SUFFIX,fireworks.ai # Fireworks AI 官方主站，用于产品介绍、模型体验、控制台入口
-DOMAIN-SUFFIX,api.fireworks.ai # Fireworks API 主端点，用于调用 LLM、Embedding、推理加速等模型服务
-DOMAIN-SUFFIX,app.fireworks.ai # Fireworks 控制台，用于 API Key 管理、账单、项目设置与模型部署管理
-DOMAIN-SUFFIX,docs.fireworks.ai # Fireworks 文档站点，提供 API 文档、示例代码与 SDK 指南
-DOMAIN-SUFFIX,cdn.fireworks.ai # Fireworks 静态资源 CDN，用于前端脚本、样式、界面资源加载
-DOMAIN-SUFFIX,assets.fireworks.ai # Fireworks 静态素材资源域名，用于加载图标、字体与 UI 内容
-DOMAIN-SUFFIX,platform.fireworks.ai # Fireworks 平台级服务入口，用于项目、模型与团队管理
-DOMAIN-SUFFIX,studio.fireworks.ai # Fireworks Studio Web UI，用于在线体验模型、调参与推理测试
-DOMAIN-SUFFIX,chat.fireworks.ai # Fireworks 原生 Chat 界面入口，用于测试 Fireworks 提供的 LLM 聊天服务
-DOMAIN-SUFFIX,status.fireworks.ai # Fireworks 服务状态监控域名，用于查看 API、控制台与推理系统运行情况
-
-# > Tia AI 官方主站与服务域名
-
-DOMAIN-SUFFIX,tia-ai.com # Tia AI 官方主域名，用于访问平台主页、产品介绍、用户登录与相关功能页面
-DOMAIN-SUFFIX,fast.tia-ai.com # Tia AI 提供的静态资源加载域名，用于分发前端脚本、样式与组件资源，加快网页渲染性能
+DOMAIN-SUFFIX,grok.com # Grok 官方品牌域名
+
+# > Meta AI Platform（Meta 生成式 AI 与研究相关域名）
+# - 校对时间：2026-03-09
+
+DOMAIN-SUFFIX,meta.ai # Meta AI 官方站点
+DOMAIN-SUFFIX,ai.meta.com # Meta AI 服务入口
+DOMAIN-SUFFIX,llama.meta.com # Meta LLaMA 模型文档与资源
+DOMAIN-SUFFIX,meta-llama.com # Meta LLaMA 模型分发域名
+DOMAIN-SUFFIX,llama.com # LLaMA 模型品牌域名
+DOMAIN-SUFFIX,llama.dev # LLaMA 开发者资源域名
+DOMAIN-SUFFIX,facebookai.com # Facebook AI Research 历史研究站点
+DOMAIN-SUFFIX,fbai.net # Meta AI 研究相关域名
+DOMAIN-SUFFIX,ai.facebook.com # Facebook AI Research 历史站点
+DOMAIN-SUFFIX,research.fb.com # Meta 技术研究站点
+DOMAIN-SUFFIX,about.fb.com # Meta 官方技术博客
+DOMAIN-SUFFIX,developers.facebook.com # Meta 开发者平台
+
+# > Claude Platform Infrastructure（Claude 平台基础设施域名）
+# - 校对时间：2026-05-08
+
+DOMAIN-SUFFIX,claude.com # Claude 官方品牌与服务入口域名
+DOMAIN-SUFFIX,claude.ai # Claude Web 应用主域名
+DOMAIN-SUFFIX,downloads.claude.ai # Claude 客户端下载服务域名
+DOMAIN-SUFFIX,api.anthropic.com # Anthropic Claude API 服务接口
+DOMAIN-SUFFIX,api.claude.ai # Claude API 接口（新统一端点）
+DOMAIN-SUFFIX,api.claude.com # Claude API 兼容接口
+DOMAIN-SUFFIX,claudeusercontent.com # Claude 用户内容与附件资源域名
+DOMAIN-SUFFIX,assets.claude.ai # Claude 前端静态资源域名
+DOMAIN-SUFFIX,cdn.claude.ai # Claude 静态资源 CDN
+DOMAIN-SUFFIX,status.anthropic.com # Anthropic 官方服务状态页面
+DOMAIN-SUFFIX,claude.io # Claude 官方 Web 入口域名（Anthropic Claude 平台）
+DOMAIN-SUFFIX,files.claudeusercontent.com # Claude 文件附件下载资源域名
+DOMAIN-SUFFIX,uploads.claudeusercontent.com # Claude 文件上传服务接口
+
+# > Anthropic Claude Official Network IPv4（Anthropic Claude IPv4 官方网络节点）
+# - 数据来源：ARIN / BGP ASN 信息 / api.anthropic.com DNS 解析
+# - 校对时间：2026-03-09
+
+IP-CIDR,160.79.104.0/21 # Anthropic Claude API 网络
+
+# > Anthropic Claude Official Network IPv6（Anthropic Claude IPv6 官方网络节点）
+# - 数据来源：ARIN / BGP ASN 信息 / api.anthropic.com DNS 解析
+# - 校对时间：2026-03-09
+
+IP-CIDR6,2607:6bc0::/48 # Anthropic Claude IPv6 API 网络
+
+# > Anthropic Platform Infrastructure（Anthropic 平台基础设施域名）
+
+DOMAIN-SUFFIX,anthropic.com # Anthropic 官方主站
+DOMAIN-SUFFIX,trust.anthropic.com # Anthropic 信任与安全中心
+DOMAIN-SUFFIX,legal.anthropic.com # Anthropic 法律与服务条款页面
+DOMAIN-SUFFIX,privacy.anthropic.com # Anthropic 隐私政策页面
+DOMAIN-SUFFIX,status.anthropic.com # Anthropic 服务状态页面
+DOMAIN-SUFFIX,console.anthropic.com # Anthropic API 控制台
+DOMAIN-SUFFIX,developer.anthropic.com # Anthropic 开发者平台
+DOMAIN-SUFFIX,docs.anthropic.com # Anthropic 技术文档站点
+DOMAIN-SUFFIX,resources.anthropic.com # Anthropic 官方资源中心
+DOMAIN-SUFFIX,assets.anthropic.com # Anthropic 静态资源服务
+DOMAIN-SUFFIX,cdn.anthropic.com # Anthropic 内容分发网络
+
+# > Gemini / Bard（Google 生成式 AI 平台）
+# - 校对时间：2026-03-10
+
+DOMAIN-SUFFIX,gemini.google.com # Google Gemini Web 服务入口
+DOMAIN-SUFFIX,bard.google.com # Google Bard 历史入口域名
+DOMAIN-SUFFIX,aistudio.google.com # Google AI Studio
+DOMAIN-SUFFIX,generativeai.google # Google Generative AI 官方站点
+DOMAIN-SUFFIX,ai.google.dev # Google AI 开发者平台与 Gemini API 文档
+DOMAIN-SUFFIX,makersuite.google.com # Google MakerSuite 开发工具
+DOMAIN-SUFFIX,ai.googleblog.com # Google AI 官方技术博客
+DOMAIN-SUFFIX,deepmind.google # Google DeepMind 官方域名
+DOMAIN-SUFFIX,alkalimakersuite-pa.clients6.google.com # Google AI Studio / MakerSuite 后端服务接口
+
+# > Microsoft Copilot Platform（Microsoft 生成式 AI / Copilot 平台相关域名）
+# - 校对时间：2026-03-11
+
+DOMAIN-SUFFIX,copilot.microsoft.com # Microsoft Copilot Web 主入口
+DOMAIN-SUFFIX,copilot.microsoft # Microsoft Copilot 新统一品牌域名
+DOMAIN-SUFFIX,copilot.azureedge.net # Copilot 静态资源 CDN
+DOMAIN-SUFFIX,bingcopilot.microsoft.com # Bing Copilot Web 接入域
+DOMAIN-SUFFIX,api.bing.microsoft.com # Bing / Copilot API 接口
+DOMAIN-SUFFIX,bingapis.com # Bing AI 后端 API 域名
+DOMAIN-SUFFIX,sydney.bing.com # Bing AI / Copilot ChatHub 推理接口
+DOMAIN-SUFFIX,assets.msn.com # Copilot 搜索卡片 UI 资源加载
+DOMAIN-SUFFIX,msftauth.net # Microsoft 身份认证系统
+
+# > Perplexity AI（AI 搜索与多模型问答平台）
+# - 校对时间：2026-03-11
+
+DOMAIN-SUFFIX,perplexity.ai # Perplexity AI 官方主站
+DOMAIN-SUFFIX,api.perplexity.ai # Perplexity 官方 API 接口
+DOMAIN-SUFFIX,pplx.ai # Perplexity 官方短链与跳转域名
+
+# > Hugging Face Platform Infrastructure（Hugging Face 平台基础设施域名）
+# - 校对时间：2026-03-11
+
+DOMAIN-SUFFIX,huggingface.co # Hugging Face 官方主域名
+DOMAIN-SUFFIX,hf.co # Hugging Face 官方短链域名
+DOMAIN-SUFFIX,hf.space # Hugging Face Spaces 应用运行域名
+DOMAIN-SUFFIX,cdn-lfs.huggingface.co # Hugging Face LFS 文件分发服务
+DOMAIN-SUFFIX,assets.huggingface.co # Hugging Face 静态资源服务
+DOMAIN-SUFFIX,huggingfaceusercontent.com # Hugging Face 用户内容托管
+DOMAIN-SUFFIX,api-inference.huggingface.co # Hugging Face 推理 API 服务
+DOMAIN-SUFFIX,endpoints.huggingface.cloud # Hugging Face 托管推理服务
+
+# > Poe Platform（Quora AI 多模型对话平台）
+# - 校对时间：2026-03-12
+
+DOMAIN-SUFFIX,poe.com # Poe 官方主站
+DOMAIN-SUFFIX,api.poe.com # Poe API 服务接口
+DOMAIN-SUFFIX,ws.poe.com # Poe WebSocket 实时通信接口
+DOMAIN-SUFFIX,poecdn.net # Poe 静态资源 CDN
+DOMAIN-SUFFIX,poeusercontent.com # Poe 用户内容资源
+DOMAIN-SUFFIX,quora.com # Quora 账号系统与登录依赖
+DOMAIN-SUFFIX,quoracdn.net # Quora 静态资源 CDN
+
+# > Mistral AI Platform（Mistral 生成式 AI 模型与 API 平台）
+# - 校对时间：2026-03-12
+
+DOMAIN-SUFFIX,mistral.ai # Mistral AI 官方主站
+DOMAIN-SUFFIX,api.mistral.ai # Mistral 官方 API 服务
+DOMAIN-SUFFIX,console.mistral.ai # Mistral 控制台
+DOMAIN-SUFFIX,docs.mistral.ai # Mistral 开发者文档
+DOMAIN-SUFFIX,cdn.mistral.ai # Mistral 静态资源 CDN
+DOMAIN-SUFFIX,mistral-embed.run # Mistral Embedding API 推理服务
+DOMAIN-SUFFIX,mistral-medium.run # Mistral Medium 模型推理 API
+
+# > Haruka AI（生成式 AI 对话平台）
+# - 校对时间：2026-03-12
+
+DOMAIN-SUFFIX,haruka.ai # Haruka AI 官方域名
+DOMAIN-SUFFIX,haruka.cloud # Haruka AI 平台基础域名
+
+# > Cohere AI Platform（Cohere 生成式 AI 与模型 API 平台）
+# - 校对时间：2026-03-12
+
+DOMAIN-SUFFIX,cohere.ai # Cohere 官方平台域名
+DOMAIN-SUFFIX,api.cohere.ai # Cohere 官方 API 接口
+DOMAIN-SUFFIX,cohere.com # Cohere 企业官网
+DOMAIN-SUFFIX,dashboard.cohere.com # Cohere 控制台
+DOMAIN-SUFFIX,docs.cohere.com # Cohere 官方文档站点
+
+# > Voyage AI Platform（Voyage AI Embedding / Rerank 模型服务平台）
+# - 校对时间：2026-03-12
+
+DOMAIN-SUFFIX,voyageai.com # Voyage AI 官方主域名
+DOMAIN-SUFFIX,api.voyageai.com # Voyage AI 官方 API 接口
+DOMAIN-SUFFIX,docs.voyageai.com # Voyage AI 开发者文档站点
+
+# > AI21 Labs Platform（AI21 Labs 生成式 AI 与语言模型平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,ai21.com # AI21 Labs 官方主站
+DOMAIN-SUFFIX,api.ai21.com # AI21 官方 API 接口
+DOMAIN-SUFFIX,studio.ai21.com # AI21 Studio 在线开发与测试环境
+DOMAIN-SUFFIX,docs.ai21.com # AI21 官方开发者文档
+DOMAIN-SUFFIX,platform.ai21.com # AI21 开发者平台控制台
+DOMAIN-SUFFIX,cdn.ai21.com # AI21 静态资源 CDN
+
+# > Midjourney Platform（Midjourney 图像生成平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,midjourney.com # Midjourney 官方主站
+DOMAIN-SUFFIX,cdn.midjourney.com # Midjourney 静态资源 CDN
+DOMAIN-SUFFIX,midjourney.ghost.io # Midjourney 官方博客（Ghost 托管平台）
+
+# > Runway Platform（Runway Gen-2 / Gen-3 视频生成平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,runwayml.com # Runway 官方主站
+DOMAIN-SUFFIX,app.runwayml.com # Runway Web Studio 应用入口
+DOMAIN-SUFFIX,api.runwayml.com # Runway 官方 API 接口
+DOMAIN-SUFFIX,cdn.runwayml.com # Runway 静态资源 CDN
+DOMAIN-SUFFIX,assets.runwayml.com # Runway 静态资源域名
+DOMAIN-SUFFIX,media.runwayml.com # Runway 媒体资源域名
+DOMAIN-SUFFIX,files.runwayml.com # Runway 文件服务端点
+DOMAIN-SUFFIX,genmo.runwayml.com # Runway 模型推理服务端点
+DOMAIN-SUFFIX,render.runwayml.com # Runway 渲染任务服务
+
+# > Stability AI Platform（Stable Diffusion 生成式 AI 平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,stability.ai # Stability AI 官方主站
+DOMAIN-SUFFIX,api.stability.ai # Stability AI 官方 API 接口
+DOMAIN-SUFFIX,platform.stability.ai # Stability AI 平台控制台
+DOMAIN-SUFFIX,stability.dev # Stability AI 开发者资源域名
+DOMAIN-SUFFIX,cdn.stability.ai # Stability AI 静态资源 CDN
+DOMAIN-SUFFIX,stablediffusionapi.com # Stable Diffusion 第三方 API 服务（非 Stability 官方）
+DOMAIN-SUFFIX,clipdrop.co # ClipDrop 官方服务域名（Stability AI 产品）
+DOMAIN-SUFFIX,api.clipdrop.co # ClipDrop 官方 API 接口
+
+# > Pika Platform（Pika AI 视频生成平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,pika.art # Pika 官方主站
+DOMAIN-SUFFIX,api.pika.art # Pika 官方 API 接口
+DOMAIN-SUFFIX,cdn.pika.art # Pika 静态资源 CDN
+DOMAIN-SUFFIX,assets.pika.art # Pika 静态资源域名
+DOMAIN-SUFFIX,pika-realtime-prod.onrender.com # Pika 实时推理服务（Render 托管后端）
+
+# > Leonardo AI Platform（Leonardo AI 图像生成平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,leonardo.ai # Leonardo AI 官方主站
+DOMAIN-SUFFIX,api.leonardo.ai # Leonardo AI 官方 API 接口
+DOMAIN-SUFFIX,cdn.leonardo.ai # Leonardo AI 静态资源 CDN
+
+# > Krea AI Platform（Krea AI 图像 / 视频生成平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,krea.ai # Krea AI 官方主站
+DOMAIN-SUFFIX,api.krea.ai # Krea AI 官方 API 接口
+DOMAIN-SUFFIX,cdn.krea.ai # Krea AI 静态资源 CDN
+
+# > Luma Labs Platform（Luma AI / Dream Machine 平台相关域名）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,lumalabs.ai # Luma AI 官方平台域名
+DOMAIN-SUFFIX,app.lumalabs.ai # Luma AI Web 应用入口
+DOMAIN-SUFFIX,api.lumalabs.ai # Luma AI API 服务接口
+DOMAIN-SUFFIX,cdn.lumalabs.ai # Luma AI 静态资源 CDN
+DOMAIN-SUFFIX,assets.lumalabs.ai # Luma AI 静态资源服务
+DOMAIN-SUFFIX,files.lumalabs.ai # Luma AI 文件资源服务
+
+# > Together AI Platform（Together Computer 开源模型推理 / API 平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,together.ai # Together AI 官方平台域名
+DOMAIN-SUFFIX,api.together.ai # Together AI 官方 API 接口
+DOMAIN-SUFFIX,app.together.ai # Together AI 控制台（Dashboard）
+DOMAIN-SUFFIX,static.together.ai # Together AI 前端静态资源
+DOMAIN-SUFFIX,cdn.together.ai # Together AI 静态资源 CDN
+DOMAIN-SUFFIX,assets.together.ai # Together AI 前端资源域名
+DOMAIN-SUFFIX,prod-api.together.ai # Together AI 生产环境 API 节点
+DOMAIN-SUFFIX,togethercomputer.com # Together Computer 官方公司域名
+
+# > Groq Platform Infrastructure（Groq 推理平台相关域名）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,groq.com # Groq 官方主站
+DOMAIN-SUFFIX,groqcloud.ai # Groq Cloud 推理平台入口
+DOMAIN-SUFFIX,api.groq.com # Groq 官方 API 接口
+DOMAIN-SUFFIX,console.groq.com # Groq 控制台
+DOMAIN-SUFFIX,docs.groq.com # Groq 开发者文档站点
+DOMAIN-SUFFIX,cdn.groq.com # Groq 静态资源 CDN
+DOMAIN-SUFFIX,assets.groq.com # Groq 前端静态资源
+DOMAIN-SUFFIX,status.groq.com # Groq 服务状态页面
+DOMAIN-SUFFIX,phte.groq.io # Groq 推理服务相关节点
+
+# > Modal Platform（Modal 无服务器 AI 推理与计算平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,modal.com # Modal 官方主站
+DOMAIN-SUFFIX,modal.run # Modal 任务运行与函数执行环境
+DOMAIN-SUFFIX,api.modal.com # Modal 官方 API 接口
+DOMAIN-SUFFIX,console.modal.com # Modal 控制台
+DOMAIN-SUFFIX,assets.modal.com # Modal 前端静态资源
+DOMAIN-SUFFIX,cdn.modal.com # Modal 静态资源 CDN
+
+# > Replicate Platform（Replicate 模型托管与云端推理平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,replicate.com # Replicate 官方主站与控制台
+DOMAIN-SUFFIX,api.replicate.com # Replicate 官方 API 接口
+DOMAIN-SUFFIX,replicate.delivery # Replicate 推理输出分发域名
+DOMAIN-SUFFIX,objects.replicate.com # Replicate 对象存储域名
+DOMAIN-SUFFIX,cdn.replicate.com # Replicate 前端静态资源 CDN
+DOMAIN-SUFFIX,status.replicate.com # Replicate 官方服务状态页面
+
+# > RunPod Platform（RunPod GPU 推理与模型部署平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,runpod.io # RunPod 官方主站
+DOMAIN-SUFFIX,runpod.ai # RunPod AI 平台主域
+DOMAIN-SUFFIX,api.runpod.ai # RunPod 官方 API 接口
+DOMAIN-SUFFIX,imgs.runpod.io # RunPod 控制台图片资源
+DOMAIN-SUFFIX,cdn.runpod.io # RunPod 静态资源 CDN
+DOMAIN-SUFFIX,runpodusercontent.com # RunPod 用户内容存储域名
+DOMAIN-SUFFIX,files.runpod.io # RunPod 文件上传与下载服务
+
+# > Suno Platform（Suno AI 音乐生成平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,suno.com # Suno 官方主站
+DOMAIN-SUFFIX,suno.ai # Suno AI 平台主域
+DOMAIN-SUFFIX,app.suno.ai # Suno Web 应用入口
+DOMAIN-SUFFIX,api.suno.ai # Suno 官方 API 接口
+DOMAIN-SUFFIX,cdn.suno.ai # Suno 静态资源 CDN
+DOMAIN-SUFFIX,assets.suno.ai # Suno 前端静态资源
+DOMAIN-SUFFIX,media.suno.ai # Suno 媒体资源服务
+DOMAIN-SUFFIX,files.suno.ai # Suno 文件服务接口
+DOMAIN-SUFFIX,content.suno.run # Suno 内容资源分发域名
+
+# > ElevenLabs Platform（ElevenLabs AI 语音生成平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,elevenlabs.io # ElevenLabs 官方主站
+DOMAIN-SUFFIX,app.elevenlabs.io # ElevenLabs Web 应用入口
+DOMAIN-SUFFIX,api.elevenlabs.io # ElevenLabs 官方 API 接口
+DOMAIN-SUFFIX,cdn.elevenlabs.io # ElevenLabs 静态资源 CDN
+DOMAIN-SUFFIX,assets.elevenlabs.io # ElevenLabs 前端静态资源
+DOMAIN-SUFFIX,voices.elevenlabs.io # ElevenLabs 语音模型资源
+DOMAIN-SUFFIX,media.elevenlabs.io # ElevenLabs 媒体资源服务
+
+# > HeyGen Platform（HeyGen AI 视频生成平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,heygen.com # HeyGen 官方主站
+DOMAIN-SUFFIX,app.heygen.com # HeyGen Web Studio 入口
+DOMAIN-SUFFIX,api.heygen.com # HeyGen 官方 API 接口
+DOMAIN-SUFFIX,cdn.heygen.com # HeyGen 静态资源 CDN
+DOMAIN-SUFFIX,assets.heygen.com # HeyGen 前端静态资源
+DOMAIN-SUFFIX,media.heygen.com # HeyGen 媒体资源服务
+DOMAIN-SUFFIX,files.heygen.com # HeyGen 文件服务接口
+DOMAIN-SUFFIX,render.heygen.com # HeyGen 视频渲染服务
+DOMAIN-SUFFIX,static.heygen.ai # HeyGen 静态资源服务
+
+# > PlayHT Platform（PlayHT AI 语音生成平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,play.ht # PlayHT 官方主站
+DOMAIN-SUFFIX,play.ai # PlayAI 语音平台域名
+DOMAIN-SUFFIX,app.play.ht # PlayHT Web 应用入口
+DOMAIN-SUFFIX,api.play.ht # PlayHT 官方 API 接口
+DOMAIN-SUFFIX,cdn.play.ht # PlayHT 静态资源 CDN
+DOMAIN-SUFFIX,assets.play.ht # PlayHT 前端静态资源
+DOMAIN-SUFFIX,media.play.ht # PlayHT 媒体资源服务
+DOMAIN-SUFFIX,files.play.ht # PlayHT 文件服务接口
+
+# > LOVO AI Platform（LOVO AI 语音生成平台）
+# - 校对时间：2026-03-13
+
+DOMAIN-SUFFIX,lovo.ai # LOVO AI 官方主站
+DOMAIN-SUFFIX,app.lovo.ai # LOVO Web Studio 入口
+DOMAIN-SUFFIX,api.lovo.ai # LOVO 官方 API 接口
+DOMAIN-SUFFIX,cdn.lovo.ai # LOVO 静态资源 CDN
+DOMAIN-SUFFIX,assets.lovo.ai # LOVO 前端静态资源
+DOMAIN-SUFFIX,media.lovo.ai # LOVO 媒体资源服务
+DOMAIN-SUFFIX,files.lovo.ai # LOVO 文件服务接口
+
+# > Revoice Platform（Revoice AI 语音克隆平台）
+# - 校对时间：2026-03-14
+
+DOMAIN-SUFFIX,revoice.ai # Revoice 官方主站
+DOMAIN-SUFFIX,app.revoice.ai # Revoice Web 应用入口
+DOMAIN-SUFFIX,api.revoice.ai # Revoice 官方 API 接口
+DOMAIN-SUFFIX,cdn.revoice.ai # Revoice 静态资源 CDN
+DOMAIN-SUFFIX,assets.revoice.ai # Revoice 前端静态资源
+DOMAIN-SUFFIX,media.revoice.ai # Revoice 媒体资源服务
+DOMAIN-SUFFIX,files.revoice.ai # Revoice 文件服务接口
+
+# > Synthesia Platform（Synthesia AI 数字人视频生成平台）
+# - 校对时间：2026-03-14
+
+DOMAIN-SUFFIX,synthesia.io # Synthesia 官方主站
+DOMAIN-SUFFIX,app.synthesia.io # Synthesia Web Studio 入口
+DOMAIN-SUFFIX,api.synthesia.io # Synthesia 官方 API 接口
+DOMAIN-SUFFIX,cdn.synthesia.io # Synthesia 静态资源 CDN
+DOMAIN-SUFFIX,assets.synthesia.io # Synthesia 前端静态资源
+DOMAIN-SUFFIX,media.synthesia.io # Synthesia 媒体资源服务
+DOMAIN-SUFFIX,files.synthesia.io # Synthesia 文件服务接口
+DOMAIN-SUFFIX,render.synthesia.io # Synthesia 视频渲染服务
+
+# > Fable Studio / Showrunner Platform（Fable AI 剧集生成平台）
+# - 校对时间：2026-03-14
+
+DOMAIN-SUFFIX,fable-studio.com # Fable Studio 官方站点
+DOMAIN-SUFFIX,fable.app # Fable AI 平台主域名
+DOMAIN-SUFFIX,app.fable.app # Fable Web 应用入口
+DOMAIN-SUFFIX,api.fable.app # Fable 官方 API 接口
+DOMAIN-SUFFIX,cdn.fable.app # Fable 静态资源 CDN
+DOMAIN-SUFFIX,assets.fable.app # Fable 前端静态资源
+DOMAIN-SUFFIX,media.fable.app # Fable 媒体资源服务
+DOMAIN-SUFFIX,files.fable.app # Fable 文件资源服务
+DOMAIN-SUFFIX,showrunner.ai # Showrunner AI 剧集生成平台
+DOMAIN-SUFFIX,app.showrunner.ai # Showrunner Web 应用入口
+DOMAIN-SUFFIX,api.showrunner.ai # Showrunner 官方 API 接口
+
+# > Dola AI Platform（Dola 多模型聚合对话平台）
+# - 基础设施：主要服务节点位于新加坡区域
+# - 校对时间：2026-03-14
+
+DOMAIN-SUFFIX,dola.com # Dola AI 官方主域名
+DOMAIN-SUFFIX,app.dola.com # Dola AI Web 应用入口
+DOMAIN-SUFFIX,api.dola.com # Dola AI 官方 API 接口
+DOMAIN-SUFFIX,cdn.dola.com # Dola 静态资源 CDN
+
+# > Ciciai Platform（CiCi AI / 生数科技生成式 AI 平台）
+# - 基础设施：主要服务节点位于新加坡区域
+# - 校对时间：2026-03-14
+
+DOMAIN-SUFFIX,cici.com # Cici 官方网站
+DOMAIN-SUFFIX,ciciai.com # Ciciai AI 平台主域名
+DOMAIN-SUFFIX,ciciaicdn.com # Ciciai 静态资源 CDN
+DOMAIN-SUFFIX,sf-sf-flow-web-cdn-nontt.ciciaicdn.com # Ciciai Web CDN 节点
+DOMAIN-SUFFIX,sf-flow-web-cdn.ciciaicdn.com # Ciciai Web CDN 节点
+DOMAIN-SUFFIX,opt-i18n.ciciai.com # Ciciai 国际化资源服务
+DOMAIN-SUFFIX,vmweb-sg.ciciai.com # Ciciai Web 服务节点（SG）
+DOMAIN-SUFFIX,mcs-sg.ciciai.com # Ciciai 后端服务节点（SG）
+
+# > AI Business（AI 行业资讯与研究媒体）
+# - 校对时间：2026-03-15
+DOMAIN-SUFFIX,aibusiness.com # AI Business 行业资讯媒体站点
+
+# > Fireworks AI Platform（Fireworks 推理加速与模型托管平台）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,fireworks.ai # Fireworks AI 官方主站
+DOMAIN-SUFFIX,api.fireworks.ai # Fireworks API 服务接口
+DOMAIN-SUFFIX,app.fireworks.ai # Fireworks Web 控制台
+DOMAIN-SUFFIX,docs.fireworks.ai # Fireworks 官方文档站点
+DOMAIN-SUFFIX,cdn.fireworks.ai # Fireworks 静态资源 CDN
+DOMAIN-SUFFIX,assets.fireworks.ai # Fireworks 前端静态资源
+DOMAIN-SUFFIX,platform.fireworks.ai # Fireworks 平台服务入口
+DOMAIN-SUFFIX,studio.fireworks.ai # Fireworks Studio Web UI
+DOMAIN-SUFFIX,chat.fireworks.ai # Fireworks Chat 测试界面
+DOMAIN-SUFFIX,status.fireworks.ai # Fireworks 官方服务状态页面
+
+# > Tia AI Platform（Tia 生成式 AI 服务平台）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,tia-ai.com # Tia AI 官方平台域名
+DOMAIN-SUFFIX,fast.tia-ai.com # Tia AI 静态资源与前端加速节点
+
+# > OpenRouter Platform（多模型 API 聚合与路由服务）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,openrouter.ai # OpenRouter 官方平台域名
+
+# > Speechify Platform（AI 语音朗读与文本转语音服务）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,speechify.com # Speechify 官方平台域名
+
+# > Palantir Platform（企业数据分析与 AIP 人工智能平台）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,palantir.com # Palantir 官方平台与产品入口
+DOMAIN-SUFFIX,ai.palantir.com # Palantir AI / AIP 平台相关服务
+
+# > Nrich.ai Platform（AI 推荐与生成式服务平台）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,nrich.ai # Nrich.ai 官方平台主域名
+DOMAIN-SUFFIX,serve.nrich.ai # Nrich.ai 前端服务与 API 接入节点
+
+# > OpenCode Platform（AI 编程与代码生成平台）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,opencode.ai # OpenCode 官方平台主域名
+
+# > Dify Platform（开源 LLM 应用开发与 AI Agent 编排平台）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,dify.ai # Dify 官方平台主域名
+
+# > OpenClaw Platform（AI Agent 与自动化平台）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,openclaw.ai # OpenClaw 官方平台主域名
+
+# > Flowise Platform（AI Agent 与 LLM 工作流开发平台）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,flowiseai.com # Flowise 官方平台主域名
+
+# > Langflow Platform（AI Agent 与 LLM 工作流开发平台）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,langflow.org # Langflow 官方平台主域名
+
+# > Ollama Platform（本地大语言模型运行与推理平台）
+# - 校对时间：2026-03-15
+
+DOMAIN-SUFFIX,ollama.com # Ollama 官方平台主域名
+
+# > Nous Research AI Platform（Nous Research AI 平台）
+# - 校对时间：2026-05-08
+
+DOMAIN-SUFFIX,nousresearch.com # Nous Research 官方平台主域名
+DOMAIN-SUFFIX,hermes-agent.nousresearch.com # Nous Research Hermes Agent 服务域名
+
+# > Psyche Decentralized AI Training Network（Psyche 去中心化 AI 训练网络）
+# - 校对时间：2026-05-08
+
+DOMAIN-SUFFIX,psyche.network # Psyche 官方网络主域名
+DOMAIN-SUFFIX,docs.psyche.network # Psyche 官方文档域名
+
+# > WorldClaw AI Model Routing and Agent Platform（WorldClaw AI 模型路由与 Agent 平台）
+# - 校对时间：2026-05-07
+
+DOMAIN-SUFFIX,worldclaw.ai # WorldClaw 官方平台主域名
+DOMAIN-SUFFIX,worldrouter.ai # WorldRouter AI 模型路由服务主域名
+DOMAIN-SUFFIX,auth.worldrouter.ai # WorldRouter 身份认证服务域名
+
+# > B.AI AI Agent Infrastructure Platform（B.AI AI Agent 基础设施平台）
+# - 校对时间：2026-05-07
+
+DOMAIN-SUFFIX,b.ai # B.AI 官方平台主域名
+DOMAIN-SUFFIX,baiclaw.b.ai # BAIclaw AI 客户端服务域名
+
+# > EasyRouter AI Model Gateway Platform（EasyRouter AI 模型网关平台）
+# - 校对时间：2026-05-07
+
+DOMAIN-SUFFIX,easyrouter.io # EasyRouter 官方平台主域名
+
+# > AINFT AI Agent Launch Platform（AINFT AI Agent 发行平台）
+# - 校对时间：2026-05-07
+
+DOMAIN-SUFFIX,ainft.com # AINFT 官方平台主域名
+
+# > Base44 AI App Builder Platform（Base44 AI 应用构建平台）
+# - 校对时间：2026-05-09
+
+DOMAIN-SUFFIX,base44.com # Base44 官方平台主域名
+DOMAIN-SUFFIX,media.base44.com # Base44 媒体资源服务域名
+
+# > TailorHQ AI Workflow Platform（TailorHQ AI 工作流平台）
+# - 校对时间：2026-05-10
+
+DOMAIN-SUFFIX,tailorhq.ai # TailorHQ 官方平台主域名
+DOMAIN-SUFFIX,app.tailorhq.ai # TailorHQ Web 应用服务域名
