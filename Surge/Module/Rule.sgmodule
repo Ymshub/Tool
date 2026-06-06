@@ -12,8 +12,14 @@ DOMAIN-SUFFIX,ip.im,DIRECT
 # > 阡陌居
 DOMAIN-SUFFIX,1000qm.vip,DIRECT
 
-# > Safari 防跳转
+# > 屏蔽 HTTP3/QUIC (保证稳定性，强制回落 TCP)
+AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
+# > 屏蔽 YouTube QUIC (防止缓冲问题)
+AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
+
+# > 隐私与安全
 DOMAIN,app-site-association.cdn-apple.com,REJECT,extended-matching
+DOMAIN,ocsp.apple.com,REJECT,extended-matching
 
 # > 防止 Telegram 加载转圈
 IP-CIDR,95.161.76.100/31,REJECT,no-resolve,pre-matching
