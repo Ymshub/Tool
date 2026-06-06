@@ -9,6 +9,11 @@ DOMAIN-SUFFIX,ip-api.com,Proxy
 DOMAIN-SUFFIX,speedtest.cn,DIRECT
 DOMAIN-SUFFIX,ip.im,DIRECT
 
+# > 最高优放行：内网与时间同步
+DOMAIN-SUFFIX,ntp.org,DIRECT
+DOMAIN-SUFFIX,time.apple.com,DIRECT
+DOMAIN-SUFFIX,time.cloudflare.com,DIRECT
+
 # > 阡陌居
 DOMAIN-SUFFIX,1000qm.vip,DIRECT
 
@@ -26,6 +31,8 @@ IP-CIDR,95.161.76.100/31,REJECT,no-resolve,pre-matching
 IP-CIDR,5.28.195.1/32,REJECT-NO-DROP,no-resolve,pre-matching
 
 # > 拒绝国家反诈中心请求
+DOMAIN,prpr.96110.cn.com,DIRECT
+DOMAIN-KEYWORD,96110,REJECT
 DOMAIN-SUFFIX,gjfzpt.cn,REJECT,extended-matching
 
 # > 绕过 Google Gemini 新封控措施
