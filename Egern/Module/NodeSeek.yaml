@@ -6,12 +6,6 @@ compat_arguments:
   每日签到Token: 'true'
   每日签到Task: 'true'
   定时参数Cron: 0 0 7 * * *
-  PROXY: Proxy
-compat_arguments_schema:
-  PROXY:
-    name: Proxy
-    description: 代理规则使用的策略
-    default_value: Proxy
 compat_arguments_desc: |-
   每日签到Token: 获取 NodeSeek 每日签到Token
 
