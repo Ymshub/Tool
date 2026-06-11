@@ -167,8 +167,6 @@ export default async function (ctx) {
         ["儿童节", YMD(y, 6, 1),  1], ["父亲节", wDay(6, 3, 0), 1], ["万圣节", YMD(y, 10, 31),1],
         ["感恩节", wDay(11, 4, 4),1], ["平安夜", YMD(y, 12, 24),1], ["圣诞节", YMD(y, 12, 25),1]
       ],
-      exclusive
-    };
   };
 
   const festCache = new Map();
