@@ -16,9 +16,9 @@
 
 // ── 静态常量（顶级声明，只初始化一次） ─────────────────────────────────
 const Lunar = {
-  info: [0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970,0x06566,0x0d4a0,0x0ea50,0x06e95,0x05ad0,0x02b60,0x186e3,0x092e0,0x1c8d7,0x0c950,0x0d4a0,0x1d8a6,0x0b550,0x056a0,0x1a5b4,0x025d0,0x092d0,0x0d2b2,0x0a950,0x0b557,0x06ca0,0x0b550,0x15355,0x04da0,0x0a5b0,0x14573,0x052b0,0x0a9a8,0x0e950,0x06aa0,0x0aea6,0x0ab50,0x04b60,0x0aae4,0x0a570,0x05260,0x0f263,0x0d950,0x05b57,0x056a0,0x096d0,0x04dd5,0x04ad0,0x0a4d0,0x0d4d4,0x0d250,0x0d558,0x0b540,0x0b6a0,0x195a6,0x095b0,0x049b0,0x0a974,0x0a4b0,0x0b27a,0x06a50,0x06d40,0x0af46,0x0ab60,0x09570,0x04af5,0x04970,0x064b0,0x074a3,0x0ea50,0x06b58,0x05ac0,0x0ab60,0x096d5,0x092e0,0x0c960,0x0d954,0x0d4a0,0x0da50,0x07552,0x056a0,0x0abb7,0x025d0,0x092d0,0x0cab5,0x0a950,0x0b4a0,0x0baa4,0x0ad50,0x055d9,0x04ba0,0x0a5b0,0x15176,0x052b0,0x0a930,0x07954,0x06aa0,0x0ad50,0x05b52,0x04b60,0x0a6e6,0x0a4e0,0x0d260,0x0ea65,0x0d530,0x05aa0,0x076a3,0x096d0,0x04afb,0x04ad0,0x0a4d0,0x1d0b6,0x0d250,0x0d520,0x0dd45,0x0b5a0,0x056d0,0x055b2,0x049b0,0x0a577,0x0a4b0,0x0aa50,0x1b255,0x06d20,0x0ada0,0x14b63,0x09370,0x049f8,0x04970,0x064b0,0x168a6,0x0ea50,0x06b20,0x1a6c4,0x0aae0,0x092e0,0x0d2e3,0x0c960,0x0d557,0x0d4a0,0x0da50,0x05d55,0x056a0,0x0a6d0,0x055d4,0x052d0,0x0a9b8,0x0a950,0x0b4a0,0x0b6a6,0x0ad50,0x055a0,0x0aba4,0x0a5b0,0x052b0,0x0b273,0x06930,0x07337,0x06aa0,0x0ad50,0x14b55,0x04b60,0x0a570,0x054e4,0x0d160,0x0e968,0x0d520,0x0daa0,0x16aa6,0x056d0,0x04ae0,0x0a9d4,0x0a2d0,0x0d150,0x0f252,0x0d520],
+  info: [0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x16c96,0x0b544,0x0d4a8,0x0c740,0x0cba5,0x09b4f,0x0c8a6,0x0d760,0x0d5a6,0x1b5a4,0x0ada8,0x06d5d,0x06958,0x0a6ff,0x0adab,0x05d4e,0x04d4a,0x0a4d0,0x0d044,0x8152b,0x08aa0,0x15ac9,0x08a60,0x04aea,0x0a6d0,0x05ae0,0x0a4e6,0x0a4e4,0x1d5a2,0x0d150,0x08d7f,0x0b2c6,0x0ae6e,0x07ad9,0x069d0,0x16bed,0x0aaec,0x0054d,0x04ba0,0x1a559,0x054b8,0x09bae,0x056a0,0x0b5a3,0x06904,0x06e19,0x0a573,0x06e47,0x0d5a6,0x055d4,0x05d25,0x049b0,0x159aa,0x06aa0,0x0a6d0,0x14dad,0x05b63,0x095bf,0x07c97,0x0d4c2,0x0d559,0x05b45,0x06d63,0x0aaf8,0x06985,0x5d69a,0x0b57c,0x06c60,0x0d954,0x49b0f,0x0a4ad,0x0a4ae,0x1d0a6,0x0d25d,0x14957,0x052b0,0x0a6e6,0x0ad0e,0x159e2,0x06aa0,0x0d5d4,0x0ad83,0x049ba,0x159aa,0x05b25,0x0ba32,0x0b6a1,0x16e93,0x06c96,0x092e0,0x0c940,0x13d8a,0x08acc,0x0caad,0x055d0,0x05ba3,0x0a5b0,0x15665,0x069d0,0x0d4bb,0x4adba,0x04b63,0x095b8,0x07ad9,0x06aa7,0x06ed0,0x15cd5,0x40ada,0x04d4a,0x08d65,0x08650,0x5aa58,0x0b55b,0x056c0,0x15d98,0x069d0,0x0aacf,0x06c60,0x0d400,0x0c86e,0x09e95,0x055c0,0x0ab50,0x0aae8,0x1b6a8,0x069b0,0x0a6c6,0x09ad0,0x14ae6,0x04ae0,0x0a4e6,0x0d260,0x0ea65,0x056a0,0x05ae9,0x056d4,0x05d04,0x06c48,0x7aaa8,0x0ab60,0x0abc7,0x092e0,0x0cab5,0x0a950,0x06b20,0x0ad56,0x055c0,0x0baa8,0x0b5a0,0x15ac9,0x0abae,0x0a5c0,0x05da9,0x0d5b0,0x05b55,0x056a0,0x0a6d0,0x091e3,0x06c65,0x0aa50,0x06b58,0x069c0,0x0d4a3,0x0d4a8,0x1d5a5,0x0a5c0,0x14a10,0x06d8c,0x0ab60,0x0aae4,0x0a4d0,0x0d150,0x08d7f,0x0b2c6,0x0ad50,0x055d9,0x069d0,0x0a4d0,0x14d4a,0x0a4d0,0x0c935,0x12caa,0x0aab0,0x06aa0,0x16aa6,0x0aea6,0x07ad0,0x08d62,0x0d9b5,0x0cab5,0x06a50,0x06d40,0x6ada0,0x0a6d0,0x0dda0,0x16aa9,0x0adad,0x0055c,0x04ba0,0x0a5b0,0x15ac9,0x0acb0,0x069d0,0x0aaed,0x06c60,0x0aea6,0x0ab63,0x069c0,0x15d97,0x092e0,0x0d4a3,0x0d4a8,0x1d5a2,0x0d5c0,0x16cab,0x0adab,0x055d0,0x05ba8,0x06aa0,0x15ad5,0x04b63,0x0a573,0x069d0,0x0d159],
   term(y, n) {
-    return new Date((31556925974.7 * (y - 1900)) + [0,21208,42467,63836,85337,107014,128867,150921,173149,195551,218072,240693,263343,285989,308563,331033,353350,375494,397447,419210,440795,462224,483532,504758][n-1] * 60000 + Date.UTC(1900,0,6,2,5));
+    return new Date((31556925974.7 * (y - 1900)) + [0,21208,42467,63836,85337,107014,128867,150921,173149,195551,218072,240693,263343,285989,308563,331033,353350,375494,397447,419210,440795,462224,483469,504711,525927,547037,568036,588913,609506,630020,650916,671626,692596,713359,734008,754553,774997,795467,815833,836837,857671,878372,899197,920057,940829,961314,981913,1002632,1023159,1043788][n] * 60000);
   },
   lDays(y) {
     let s = 348;
@@ -167,6 +167,7 @@ export default async function (ctx) {
         ["儿童节", YMD(y, 6, 1),  1], ["父亲节", wDay(6, 3, 0), 1], ["万圣节", YMD(y, 10, 31),1],
         ["感恩节", wDay(11, 4, 4),1], ["平安夜", YMD(y, 12, 24),1], ["圣诞节", YMD(y, 12, 25),1]
       ],
+    };
   };
 
   const festCache = new Map();
@@ -184,6 +185,12 @@ export default async function (ctx) {
     return specialPriority[name] !== undefined ? specialPriority[name] : (basePriority[cat] ?? 1);
   };
 
+  // ── 初始化数据集合 ──────────────────────────────────────────────────────
+  const todayFests = new Set();      // 今日节日集合
+  const todayFinance = new Set();    // 今日金融日期（预留）
+  const stickyParts = [];            // 置顶显示的节日
+  const pinnedNames = new Set(["春节", "国庆节"]); // 需要置顶的节日名称
+
   // ── 核心数据运算 ────────────────────────────────────────────────────────
   const result = { legal: new Map(), folk: new Map(), intl: new Map(), exclusive: new Map() };
 
@@ -191,6 +198,7 @@ export default async function (ctx) {
     const f = getFestsCached(y);
     for (const cat of Object.keys(result)) {
       const catMap = result[cat];
+      if (!f[cat]) continue;
       for (const item of f[cat]) {
         const [name, dateStr, duration = 1, sourceKind = ""] = item;
         if (!dateStr) continue;
@@ -214,9 +222,30 @@ export default async function (ctx) {
     }
   }
 
+  // ── 数据处理与排序 ──────────────────────────────────────────────────────
+  const allFests = [];
+  for (const cat of Object.keys(result)) {
+    for (const item of result[cat].values()) {
+      allFests.push(item);
+    }
+  }
+
+  // 按优先级高低排序，优先级相同按天数从少到多排序
+  allFests.sort((a, b) => {
+    if (b.priority !== a.priority) return b.priority - a.priority;
+    return a.diff - b.diff;
+  });
+
+  // 提取置顶节日（优先级 >= 100 的当天节日，且在置顶列表中）
+  for (const item of allFests) {
+    if (item.priority >= 100 && pinnedNames.has(item.name)) {
+      stickyParts.push(item.name);
+    }
+  }
+
   // ── 标题栏通告逻辑（中大号） ───────────────────────────────────────────────
   const todayNoticeParts = [];
-  if (todayFinance.size > 0) todayNoticeParts.push(`今日 ${Array.from(todayFinance).join("·")}`);
+  if (todayFests.size > 0) todayNoticeParts.push(`今日 ${Array.from(todayFests).join("·")}`);
   const todayNoticeText = todayNoticeParts.join(" ｜ ");
 
   const stickyText  = stickyParts.length > 0 ? `🔝 ${stickyParts.join("·")}` : "";
@@ -229,7 +258,7 @@ export default async function (ctx) {
     startPoint: { x: 0, y: 0 }, endPoint: { x: 1, y: 1 }
   };
 
-  // ── UI 渲染引擎 ──────────────────────────────────────────────────────────
+  // ── UI 渲染引擎 ─────────────────────────────────────────────────────────
   const CATEGORY_CONFIG = [
     { key: "legal",     label: "法定", icon: "building.columns.fill", color: C.red  },
     { key: "folk",      label: "民俗", icon: "moon.stars.fill",       color: C.gold },
@@ -260,6 +289,7 @@ export default async function (ctx) {
           mkIcon(idx === 0 ? iconName : "circle.fill", idx === 0 ? color : C.transparent, config.icz),
           mkText(idx === 0 ? label : " ", config.fz, "heavy", idx === 0 ? color : C.transparent)
         ]},
+        { type: "text", text: lineStr, font: { size: config.fz, weight: "medium" }, textColor: C.main, flex: 1 }
       ]
     }));
   };
@@ -267,7 +297,10 @@ export default async function (ctx) {
   // ── Small 尺寸渲染 ───────────────────────────────────────────────────────
   if (isSmall) {
     const smallRows = CATEGORY_CONFIG.map(cfg => {
-      const fests = result[cfg.key].filter(i => !pinnedNames.includes(i.name)).slice(0, 2);
+      const fests = Array.from(result[cfg.key].values())
+        .filter(i => !pinnedNames.has(i.name) || i.priority < 100)
+        .sort((a, b) => b.priority - a.priority || a.diff - b.diff)
+        .slice(0, 2);
       if (fests.length === 0) return null;
       return mkRow([
         mkIcon(cfg.icon, cfg.color, 13),
@@ -299,10 +332,20 @@ export default async function (ctx) {
   const buildRows = createRowFactory(layoutConfig);
   let gridRows = [];
 
+  // 为每个分类构建行数据
   for (const cfg of CATEGORY_CONFIG) {
-    const limit   = isLarge ? 7 : (cfg.key === "exclusive" ? 6 : 3);
-    if (!rawText) continue;
-    gridRows.push(...buildRows(cfg.icon, cfg.color, cfg.label, rawText, cfg.key === "exclusive"));
+    const fests = Array.from(result[cfg.key].values())
+      .filter(i => !pinnedNames.has(i.name) || i.priority < 100)  // 排除置顶项
+      .sort((a, b) => b.priority - a.priority || a.diff - b.diff)
+      .slice(0, isLarge ? 7 : 3);
+
+    if (fests.length === 0) continue;
+
+    for (const fest of fests) {
+      const text = formatItemStr(fest.name, fest.diff);
+      const rows = buildRows(cfg.icon, cfg.color, cfg.label, text, false);
+      gridRows.push(...rows);
+    }
   }
 
   // ── 构建标题栏右侧元素 (保留 sparkles 图标) ──────────────────────────────
