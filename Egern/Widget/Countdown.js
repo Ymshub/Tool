@@ -181,13 +181,11 @@ export default async function (ctx) {
 
   const getPriority = (name, cat, sourceKind) => {
     if (!enablePrioritySort) return 1;
-    if (sourceKind === "custom") return enableExclusiveWeight ? 9 : (basePriority[cat] ?? 1);
     return specialPriority[name] !== undefined ? specialPriority[name] : (basePriority[cat] ?? 1);
   };
 
   // ── 核心数据运算 ────────────────────────────────────────────────────────
   const result = { legal: new Map(), folk: new Map(), intl: new Map(), exclusive: new Map() };
-  const todayFests = new Set(), todayFinance = new Set(), pinnedMap = new Map();
 
   for (const y of [Y, Y + 1]) {
     const f = getFestsCached(y);
@@ -209,10 +207,6 @@ export default async function (ctx) {
           continue;
         }
 
-        if (pinnedHolidays.includes(name) && diff <= 200) {
-          if (!pinnedMap.has(name) || diff < pinnedMap.get(name)) pinnedMap.set(name, diff);
-        }
-
         if (!catMap.has(name)) {
           catMap.set(name, { name, diff, priority: getPriority(name, cat, sourceKind), cat });
         }
@@ -222,11 +216,9 @@ export default async function (ctx) {
 
   // ── 标题栏通告逻辑（中大号） ───────────────────────────────────────────────
   const todayNoticeParts = [];
-  if (todayFests.size > 0)   todayNoticeParts.push(`今日 ${Array.from(todayFests).slice(0, 2).join("·")}${todayFests.size > 2 ? "…" : ""}`);
   if (todayFinance.size > 0) todayNoticeParts.push(`今日 ${Array.from(todayFinance).join("·")}`);
   const todayNoticeText = todayNoticeParts.join(" ｜ ");
 
-  const stickyParts = pinnedHolidays.filter(n => pinnedMap.has(n)).map(n => `${n} ${pinnedMap.get(n)}天`);
   const stickyText  = stickyParts.length > 0 ? `🔝 ${stickyParts.join("·")}` : "";
 
   const themeKey = (todayFests.size > 0 || todayFinance.size > 0) ? "fest"
@@ -274,7 +266,6 @@ export default async function (ctx) {
 
   // ── Small 尺寸渲染 ───────────────────────────────────────────────────────
   if (isSmall) {
-    const pinnedNames = pinnedHolidays.filter(n => pinnedMap.has(n));
     const smallRows = CATEGORY_CONFIG.map(cfg => {
       const fests = result[cfg.key].filter(i => !pinnedNames.includes(i.name)).slice(0, 2);
       if (fests.length === 0) return null;
@@ -310,7 +301,6 @@ export default async function (ctx) {
 
   for (const cfg of CATEGORY_CONFIG) {
     const limit   = isLarge ? 7 : (cfg.key === "exclusive" ? 6 : 3);
-    const rawText = formatStr(cfg.key, limit);
     if (!rawText) continue;
     gridRows.push(...buildRows(cfg.icon, cfg.color, cfg.label, rawText, cfg.key === "exclusive"));
   }
