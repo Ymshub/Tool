@@ -1,27 +1,35 @@
-name: "Telegram 跳转"
-description: "将 https://t.me/... 重定向到你选择的 Telegram 客户端"
-author: "panda𝕏"
+name: TeleOpenLink
+description: Telegram 外部链接跳转至指定客户端
+compat_arguments:
+  Client: telegram
+compat_arguments_desc: 'Client: 目标客户端 URL scheme（sg / turrit / telegram 等）'
+author: Li Khixang
+homepage: https://github.com/Likhixang
 icon: https://iili.io/KQX347S.png
-env_schema:
-  CLIENT:
-    name: "Telegram 客户端"
-    description: "选择要跳转到的 Telegram 客户端"
-    default_value: "Swiftgram"
-    options:
-      - Telegram
-      - Swiftgram
-      - Turrit
-      - iMe
-      - Nicegram
-      - Lingogram
-
-scriptings:
-  - http_request:
-      name: "Telegram 链接重定向"
-      match: "^https?://t\\.me/.+"
-      script_url: https://raw.githubusercontent.com/IBL3ND/module/refs/heads/main/TgRedirect.js
-      timeout: 10
-
+dns: {}
+url_rewrites:
+- match: (https:\/\/)?(t\.me|telegram\.me|telegram\.dog)\/([A-Za-z0-9_]+)$
+  location: telegram://resolve?domain=$3
+  status_code: 302
+- match: (https:\/\/)?(t\.me|telegram\.me|telegram\.dog)\/([A-Za-z0-9_]+)\?(.+)$
+  location: telegram://resolve?domain=$3&$4
+  status_code: 302
+- match: (https:\/\/)?(t\.me|telegram\.me|telegram\.dog)\/([A-Za-z0-9_]+)\/([0-9]+)$
+  location: telegram://resolve?domain=$3&post=$4
+  status_code: 302
+- match: (https:\/\/)?(t\.me|telegram\.me|telegram\.dog)\/(joinchat\/|\+)([A-Za-z0-9_-]+)$
+  location: telegram://join?invite=$4
+  status_code: 302
+- match: (https:\/\/)?(t\.me|telegram\.me|telegram\.dog)\/c\/([0-9]+)\/([0-9]+)$
+  location: telegram://privatepost?channel=$3&post=$4
+  status_code: 302
+- match: (https:\/\/)?telesco\.pe\/(.+)$
+  location: telegram://resolve?domain=$2
+  status_code: 302
 mitm:
   hostnames:
-    - "t.me"
+    includes:
+    - t.me
+    - telegram.me
+    - telegram.dog
+    - telesco.pe
